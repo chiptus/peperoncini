@@ -1,0 +1,291 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/chaim/.nvm/versions/node/v7.5.0/bin/node',
+1 verbose cli   '/home/chaim/.nvm/versions/node/v7.5.0/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'eslint-config-react-app@0.3.0',
+1 verbose cli   'eslint@3.8.1',
+1 verbose cli   'babel-eslint@7.0.0',
+1 verbose cli   'eslint-plugin-react@6.4.1',
+1 verbose cli   'eslint-plugin-import@2.0.1',
+1 verbose cli   'eslint-plugin-jsx-a11y@2.2.3',
+1 verbose cli   'eslint-plugin-flowtype@2.21.0' ]
+2 info using npm@4.1.2
+3 info using node@v7.5.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData eslint-config-react-app@0.3.0
+8 silly fetchPackageMetaData eslint@3.8.1
+9 silly fetchPackageMetaData babel-eslint@7.0.0
+10 silly fetchPackageMetaData eslint-plugin-react@6.4.1
+11 silly fetchPackageMetaData eslint-plugin-import@2.0.1
+12 silly fetchPackageMetaData eslint-plugin-jsx-a11y@2.2.3
+13 silly fetchPackageMetaData eslint-plugin-flowtype@2.21.0
+14 silly fetchNamedPackageData eslint-config-react-app
+15 silly mapToRegistry name eslint-config-react-app
+16 silly mapToRegistry using default registry
+17 silly mapToRegistry registry https://registry.npmjs.org/
+18 silly mapToRegistry data Result {
+18 silly mapToRegistry   raw: 'eslint-config-react-app',
+18 silly mapToRegistry   scope: null,
+18 silly mapToRegistry   escapedName: 'eslint-config-react-app',
+18 silly mapToRegistry   name: 'eslint-config-react-app',
+18 silly mapToRegistry   rawSpec: '',
+18 silly mapToRegistry   spec: 'latest',
+18 silly mapToRegistry   type: 'tag' }
+19 silly mapToRegistry uri https://registry.npmjs.org/eslint-config-react-app
+20 silly fetchNamedPackageData eslint
+21 silly mapToRegistry name eslint
+22 silly mapToRegistry using default registry
+23 silly mapToRegistry registry https://registry.npmjs.org/
+24 silly mapToRegistry data Result {
+24 silly mapToRegistry   raw: 'eslint',
+24 silly mapToRegistry   scope: null,
+24 silly mapToRegistry   escapedName: 'eslint',
+24 silly mapToRegistry   name: 'eslint',
+24 silly mapToRegistry   rawSpec: '',
+24 silly mapToRegistry   spec: 'latest',
+24 silly mapToRegistry   type: 'tag' }
+25 silly mapToRegistry uri https://registry.npmjs.org/eslint
+26 silly fetchNamedPackageData babel-eslint
+27 silly mapToRegistry name babel-eslint
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'babel-eslint',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'babel-eslint',
+30 silly mapToRegistry   name: 'babel-eslint',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/babel-eslint
+32 silly fetchNamedPackageData eslint-plugin-react
+33 silly mapToRegistry name eslint-plugin-react
+34 silly mapToRegistry using default registry
+35 silly mapToRegistry registry https://registry.npmjs.org/
+36 silly mapToRegistry data Result {
+36 silly mapToRegistry   raw: 'eslint-plugin-react',
+36 silly mapToRegistry   scope: null,
+36 silly mapToRegistry   escapedName: 'eslint-plugin-react',
+36 silly mapToRegistry   name: 'eslint-plugin-react',
+36 silly mapToRegistry   rawSpec: '',
+36 silly mapToRegistry   spec: 'latest',
+36 silly mapToRegistry   type: 'tag' }
+37 silly mapToRegistry uri https://registry.npmjs.org/eslint-plugin-react
+38 silly fetchNamedPackageData eslint-plugin-import
+39 silly mapToRegistry name eslint-plugin-import
+40 silly mapToRegistry using default registry
+41 silly mapToRegistry registry https://registry.npmjs.org/
+42 silly mapToRegistry data Result {
+42 silly mapToRegistry   raw: 'eslint-plugin-import',
+42 silly mapToRegistry   scope: null,
+42 silly mapToRegistry   escapedName: 'eslint-plugin-import',
+42 silly mapToRegistry   name: 'eslint-plugin-import',
+42 silly mapToRegistry   rawSpec: '',
+42 silly mapToRegistry   spec: 'latest',
+42 silly mapToRegistry   type: 'tag' }
+43 silly mapToRegistry uri https://registry.npmjs.org/eslint-plugin-import
+44 silly fetchNamedPackageData eslint-plugin-jsx-a11y
+45 silly mapToRegistry name eslint-plugin-jsx-a11y
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npmjs.org/
+48 silly mapToRegistry data Result {
+48 silly mapToRegistry   raw: 'eslint-plugin-jsx-a11y',
+48 silly mapToRegistry   scope: null,
+48 silly mapToRegistry   escapedName: 'eslint-plugin-jsx-a11y',
+48 silly mapToRegistry   name: 'eslint-plugin-jsx-a11y',
+48 silly mapToRegistry   rawSpec: '',
+48 silly mapToRegistry   spec: 'latest',
+48 silly mapToRegistry   type: 'tag' }
+49 silly mapToRegistry uri https://registry.npmjs.org/eslint-plugin-jsx-a11y
+50 silly fetchNamedPackageData eslint-plugin-flowtype
+51 silly mapToRegistry name eslint-plugin-flowtype
+52 silly mapToRegistry using default registry
+53 silly mapToRegistry registry https://registry.npmjs.org/
+54 silly mapToRegistry data Result {
+54 silly mapToRegistry   raw: 'eslint-plugin-flowtype',
+54 silly mapToRegistry   scope: null,
+54 silly mapToRegistry   escapedName: 'eslint-plugin-flowtype',
+54 silly mapToRegistry   name: 'eslint-plugin-flowtype',
+54 silly mapToRegistry   rawSpec: '',
+54 silly mapToRegistry   spec: 'latest',
+54 silly mapToRegistry   type: 'tag' }
+55 silly mapToRegistry uri https://registry.npmjs.org/eslint-plugin-flowtype
+56 verbose request uri https://registry.npmjs.org/eslint-config-react-app
+57 verbose request no auth needed
+58 info attempt registry request try #1 at 12:20:23 PM
+59 verbose request id 7cde62da5f4b074f
+60 http request GET https://registry.npmjs.org/eslint-config-react-app
+61 verbose request uri https://registry.npmjs.org/eslint
+62 verbose request no auth needed
+63 info attempt registry request try #1 at 12:20:23 PM
+64 http request GET https://registry.npmjs.org/eslint
+65 verbose request uri https://registry.npmjs.org/babel-eslint
+66 verbose request no auth needed
+67 info attempt registry request try #1 at 12:20:23 PM
+68 http request GET https://registry.npmjs.org/babel-eslint
+69 verbose request uri https://registry.npmjs.org/eslint-plugin-react
+70 verbose request no auth needed
+71 info attempt registry request try #1 at 12:20:23 PM
+72 http request GET https://registry.npmjs.org/eslint-plugin-react
+73 verbose request uri https://registry.npmjs.org/eslint-plugin-import
+74 verbose request no auth needed
+75 info attempt registry request try #1 at 12:20:23 PM
+76 http request GET https://registry.npmjs.org/eslint-plugin-import
+77 verbose request uri https://registry.npmjs.org/eslint-plugin-jsx-a11y
+78 verbose request no auth needed
+79 info attempt registry request try #1 at 12:20:23 PM
+80 http request GET https://registry.npmjs.org/eslint-plugin-jsx-a11y
+81 verbose request uri https://registry.npmjs.org/eslint-plugin-flowtype
+82 verbose request no auth needed
+83 info attempt registry request try #1 at 12:20:23 PM
+84 http request GET https://registry.npmjs.org/eslint-plugin-flowtype
+85 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+86 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+87 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+88 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+89 info attempt registry request try #2 at 12:21:04 PM
+90 http request GET https://registry.npmjs.org/eslint-plugin-react
+91 info attempt registry request try #2 at 12:21:04 PM
+92 http request GET https://registry.npmjs.org/babel-eslint
+93 info attempt registry request try #2 at 12:21:04 PM
+94 http request GET https://registry.npmjs.org/eslint
+95 info attempt registry request try #2 at 12:21:04 PM
+96 http request GET https://registry.npmjs.org/eslint-config-react-app
+97 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+98 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+99 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+100 info attempt registry request try #2 at 12:21:34 PM
+101 http request GET https://registry.npmjs.org/eslint-plugin-flowtype
+102 info attempt registry request try #2 at 12:21:34 PM
+103 http request GET https://registry.npmjs.org/eslint-plugin-jsx-a11y
+104 info attempt registry request try #2 at 12:21:34 PM
+105 http request GET https://registry.npmjs.org/eslint-plugin-import
+106 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+107 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+108 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+109 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+110 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+111 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+112 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+113 info attempt registry request try #3 at 12:22:34 PM
+114 http request GET https://registry.npmjs.org/eslint-plugin-react
+115 info attempt registry request try #3 at 12:22:54 PM
+116 http request GET https://registry.npmjs.org/eslint
+117 info attempt registry request try #3 at 12:22:54 PM
+118 http request GET https://registry.npmjs.org/babel-eslint
+119 info attempt registry request try #3 at 12:22:54 PM
+120 http request GET https://registry.npmjs.org/eslint-config-react-app
+121 silly fetchPackageMetaData Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+121 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+121 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+121 silly fetchPackageMetaData  error for eslint-plugin-react@6.4.1 { Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+121 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+121 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+121 silly fetchPackageMetaData   code: 'ENOTFOUND',
+121 silly fetchPackageMetaData   errno: 'ENOTFOUND',
+121 silly fetchPackageMetaData   syscall: 'getaddrinfo',
+121 silly fetchPackageMetaData   hostname: 'registry.npmjs.org',
+121 silly fetchPackageMetaData   host: 'registry.npmjs.org',
+121 silly fetchPackageMetaData   port: 443 }
+122 info attempt registry request try #3 at 12:23:04 PM
+123 http request GET https://registry.npmjs.org/eslint-plugin-flowtype
+124 info attempt registry request try #3 at 12:23:15 PM
+125 http request GET https://registry.npmjs.org/eslint-plugin-jsx-a11y
+126 info attempt registry request try #3 at 12:23:15 PM
+127 http request GET https://registry.npmjs.org/eslint-plugin-import
+128 silly fetchPackageMetaData Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+128 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+128 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+128 silly fetchPackageMetaData  error for eslint-config-react-app@0.3.0 { Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+128 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+128 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+128 silly fetchPackageMetaData   code: 'ENOTFOUND',
+128 silly fetchPackageMetaData   errno: 'ENOTFOUND',
+128 silly fetchPackageMetaData   syscall: 'getaddrinfo',
+128 silly fetchPackageMetaData   hostname: 'registry.npmjs.org',
+128 silly fetchPackageMetaData   host: 'registry.npmjs.org',
+128 silly fetchPackageMetaData   port: 443 }
+129 silly fetchPackageMetaData Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+129 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+129 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+129 silly fetchPackageMetaData  error for babel-eslint@7.0.0 { Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+129 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+129 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+129 silly fetchPackageMetaData   code: 'ENOTFOUND',
+129 silly fetchPackageMetaData   errno: 'ENOTFOUND',
+129 silly fetchPackageMetaData   syscall: 'getaddrinfo',
+129 silly fetchPackageMetaData   hostname: 'registry.npmjs.org',
+129 silly fetchPackageMetaData   host: 'registry.npmjs.org',
+129 silly fetchPackageMetaData   port: 443 }
+130 silly fetchPackageMetaData Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+130 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+130 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+130 silly fetchPackageMetaData  error for eslint@3.8.1 { Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+130 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+130 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+130 silly fetchPackageMetaData   code: 'ENOTFOUND',
+130 silly fetchPackageMetaData   errno: 'ENOTFOUND',
+130 silly fetchPackageMetaData   syscall: 'getaddrinfo',
+130 silly fetchPackageMetaData   hostname: 'registry.npmjs.org',
+130 silly fetchPackageMetaData   host: 'registry.npmjs.org',
+130 silly fetchPackageMetaData   port: 443 }
+131 silly fetchPackageMetaData Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+131 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+131 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+131 silly fetchPackageMetaData  error for eslint-plugin-flowtype@2.21.0 { Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+131 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+131 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+131 silly fetchPackageMetaData   code: 'ENOTFOUND',
+131 silly fetchPackageMetaData   errno: 'ENOTFOUND',
+131 silly fetchPackageMetaData   syscall: 'getaddrinfo',
+131 silly fetchPackageMetaData   hostname: 'registry.npmjs.org',
+131 silly fetchPackageMetaData   host: 'registry.npmjs.org',
+131 silly fetchPackageMetaData   port: 443 }
+132 silly fetchPackageMetaData Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+132 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+132 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+132 silly fetchPackageMetaData  error for eslint-plugin-import@2.0.1 { Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+132 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+132 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+132 silly fetchPackageMetaData   code: 'ENOTFOUND',
+132 silly fetchPackageMetaData   errno: 'ENOTFOUND',
+132 silly fetchPackageMetaData   syscall: 'getaddrinfo',
+132 silly fetchPackageMetaData   hostname: 'registry.npmjs.org',
+132 silly fetchPackageMetaData   host: 'registry.npmjs.org',
+132 silly fetchPackageMetaData   port: 443 }
+133 silly fetchPackageMetaData Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+133 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+133 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+133 silly fetchPackageMetaData  error for eslint-plugin-jsx-a11y@2.2.3 { Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+133 silly fetchPackageMetaData     at errnoException (dns.js:28:10)
+133 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
+133 silly fetchPackageMetaData   code: 'ENOTFOUND',
+133 silly fetchPackageMetaData   errno: 'ENOTFOUND',
+133 silly fetchPackageMetaData   syscall: 'getaddrinfo',
+133 silly fetchPackageMetaData   hostname: 'registry.npmjs.org',
+133 silly fetchPackageMetaData   host: 'registry.npmjs.org',
+133 silly fetchPackageMetaData   port: 443 }
+134 silly rollbackFailedOptional Starting
+135 verbose stack TypeError: Cannot read property 'path' of null
+135 verbose stack     at Installer.rollbackFailedOptional (/home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/lib/install.js:511:29)
+135 verbose stack     at Array.<anonymous> (/home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+135 verbose stack     at LOOP (/home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+135 verbose stack     at /home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/node_modules/slide/lib/chain.js:18:7
+135 verbose stack     at /home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/lib/install.js:337:5
+135 verbose stack     at Array.<anonymous> (/home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+135 verbose stack     at LOOP (/home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+135 verbose stack     at chain (/home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+135 verbose stack     at /home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/lib/install.js:294:5
+135 verbose stack     at /home/chaim/.nvm/versions/node/v7.5.0/lib/node_modules/npm/node_modules/slide/lib/chain.js:16:22
+136 verbose cwd /home/chaim/repos/projects/david
+137 error Linux 4.8.0-39-generic
+138 error argv "/home/chaim/.nvm/versions/node/v7.5.0/bin/node" "/home/chaim/.nvm/versions/node/v7.5.0/bin/npm" "install" "-g" "eslint-config-react-app@0.3.0" "eslint@3.8.1" "babel-eslint@7.0.0" "eslint-plugin-react@6.4.1" "eslint-plugin-import@2.0.1" "eslint-plugin-jsx-a11y@2.2.3" "eslint-plugin-flowtype@2.21.0"
+139 error node v7.5.0
+140 error npm  v4.1.2
+141 error Cannot read property 'path' of null
+142 error If you need help, you may report this error at:
+142 error     <https://github.com/npm/npm/issues>
+143 verbose exit [ 1, true ]
