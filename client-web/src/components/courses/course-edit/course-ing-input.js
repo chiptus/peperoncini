@@ -1,23 +1,25 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 import { SelectField, MenuItem, TextField } from 'material-ui';
 
 const CourseIngInput = ({ ingredient, onChangeIngredientValue, ingredients, onDelete, onChangeIngredient }) => {
   return (
     <div>
-      <SelectField 
+      <SelectField
+        style={{ verticalAlign: 'bottom' }}
         value={ingredient.id}
-        floatingLabelText="רכיב" 
+        floatingLabelText="רכיב"
         onChange={(e, key, selectedId) => onChangeIngredient(ingredient.id, selectedId)} >
         {
           ingredients.map(ing => <MenuItem value={ing.id} key={ing.id} primaryText={ing.name} />)
         }
       </SelectField>
       <TextField type="number"
+        floatingLabelText="כמות"
         disabled={!ingredient.id}
         value={ingredient.value}
         id={'ing' + ingredient.id}
-        onChange={({target:{value}}) => onChangeIngredientValue(ingredient.id, value)}/>
+        onChange={({ target: { value } }) => onChangeIngredientValue(ingredient.id, value)} />
     </div>
   );
 };

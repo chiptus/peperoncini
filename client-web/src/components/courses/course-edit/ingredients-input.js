@@ -2,12 +2,16 @@ import React, { PropTypes } from 'react';
 
 import CourseIngInput from './course-ing-input';
 
-const CourseIngredientsList = ({ingredients, courseIngredients, onChangeIngredient, onChangeIngredientValue, onDelete}) => {
+const CourseIngredientsList = ({ ingredients, courseIngredients, onChangeIngredient, onChangeIngredientValue, onDelete }) => {
   return (
     <div>
       {
         courseIngredients.map(
-          (ingredient, index) => <CourseIngInput key={index} {...{onChangeIngredient, onChangeIngredientValue, onDelete, ingredients, ingredient}} />
+          (ingredient, index) =>
+            <CourseIngInput
+              key={index}
+              {...{ onChangeIngredient, onChangeIngredientValue, onDelete, ingredients, ingredient }}
+            />
         )
       }
     </div>
