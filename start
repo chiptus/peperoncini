@@ -1,2 +1,2 @@
 #!/bin/bash
-(cd server && code . && nodemon) ; (cd client-web && code . && yarn start)
+(code ./server) ; (code ./client-web)
