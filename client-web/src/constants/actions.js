@@ -1,88 +1,12 @@
-export const COURSES = {
-  ADD_COURSE: 'courses/ADD_COURSE',
-  REQUEST_COURSES: 'courses/REQUEST_COURSES',
-  RECEIVED_COURSES: 'courses/RECEIVED_COURSES',
-  REQUEST_DELETE: 'courses/REQUEST_DELETE',
-  DELETE_COURSE: 'courses/DELETE_COURSE',
-  DELETE_COURSE_ERROR: 'courses/DELETE_COURSE_ERROR',
-  RECEIVED_COURSES_FAILED: 'courses/RECEIVED_COURSES_FAILED',
-  REQUEST_SAVE: 'courses/REQUEST_SAVE',
-  REQUEST_SAVE_FAIL: 'courses/REQUEST_SAVE_FAIL',
-  UPDATE_COURSE: 'courses/UPDATE_COURSE',
-  REQUEST_COURSE: 'courses/REQUEST_COURSE',
-};
+import createActionsConstants from './create-actions-constants';
 
-export const INGREDIENTS = {
-  //unit - callbacks
-  ADD: 'ing/ADD',
-  UPDATE: 'ing/UPDATE',
-  DELETE: 'ing/DELETE',
-  RECEIVED_ITEM: 'ing/RECEIVED_ITEM',
+export const COURSES = createActionsConstants('courses');
 
-  //list - callbacks
-  RECEIVED_LIST: 'ing/RECEIVED_LIST',
+export const INGREDIENTS = createActionsConstants('ingredients');
 
-  //async loaders
-  FETCH_LIST: 'ing/FETCH_LIST',
-  FETCH_ITEM: 'ing/FETCH_ITEM',
-  REQUEST_UPDATE: 'ing/REQUEST_UPDATE',
-  REQUEST_ADD: 'ing/REQUEST_ADD',
-  REQUEST_SAVE: 'ing/REQUEST_SAVE',
-  REQUEST_DELETE: 'ing/REQUEST_DELETE',
+export const MENUS = createActionsConstants('menus');
 
-  //errors
-  FETCH_LIST_FAIL: 'ing/FETCH_LIST_FAIL',
-  FETCH_ITEM_FAIL: 'ing/FETCH_ITEM_FAIL',
-  REQUEST_DELETE_FAIL: 'ing/REQUEST_DELETE_FAIL',  
-  REQUEST_UPDATE_FAIL: 'ing/REQUEST_UPDATE_FAIL',
-  REQUEST_ADD_FAIL: 'ing/REQUEST_ADD_FAIL',
-  REQUEST_SAVE_FAIL: 'ing/REQUEST_SAVE_FAIL',
-
-}
-
-export const MENUS = {
-  //unit - callbacks
-  ADD: 'menus/ADD',
-  UPDATE: 'menus/UPDATE',
-  DELETE: 'menus/DELETE',
-
-  //list - callbacks
-  RECEIVED_LIST: 'menus/RECEIVED_LIST',
-
-  //async loaders
-  FETCH_LIST: 'menus/FETCH_LIST',
-  REQUEST_UPDATE: 'menus/REQUEST_UPDATE',
-  REQUEST_ADD: 'menus/REQUEST_ADD',
-  REQUEST_SAVE: 'menus/REQUEST_SAVE',
-
-  //errors
-  FETCH_LIST_FAIL: 'menus/FETCH_LIST_FAIL',
-  REQUEST_UPDATE_FAIL: 'menus/REQUEST_UPDATE_FAIL',
-  REQUEST_ADD_FAIL: 'menus/REQUEST_ADD_FAIL',
-  REQUEST_SAVE_FAIL: 'menus/REQUEST_SAVE_FAIL',
-}
-
-export const EVENTS = {
-  //unit - callbacks
-  ADD: 'events/ADD',
-  UPDATE: 'events/UPDATE',
-  DELETE: 'events/DELETE',
-
-  //list - callbacks
-  RECEIVED_LIST: 'events/RECEIVED_LIST',
-
-  //async loaders
-  FETCH_LIST: 'events/FETCH_LIST',
-  REQUEST_UPDATE: 'events/REQUEST_UPDATE',
-  REQUEST_ADD: 'events/REQUEST_ADD',
-  REQUEST_SAVE: 'events/REQUEST_SAVE',
-
-  //errors
-  FETCH_LIST_FAIL: 'events/FETCH_LIST_FAIL',
-  REQUEST_UPDATE_FAIL: 'events/REQUEST_UPDATE_FAIL',
-  REQUEST_ADD_FAIL: 'events/REQUEST_ADD_FAIL',
-  REQUEST_SAVE_FAIL: 'events/REQUEST_SAVE_FAIL',
-}
+export const EVENTS = createActionsConstants('events');
 
 
 export const AUTH = {

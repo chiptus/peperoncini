@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import ItemsContainer from './items-container';
 
-import {fetchCoursesIfNeeded} from '../actions/courses'
+import {fetchItemsIfNeeded as fetchCoursesIfNeeded} from '../actions/courses'
 import {fetchItemsIfNeeded as fetchIngredientsIfNeeded} from '../actions/ingredients';
 import CoursesPage from './course-page';
 import AddCoursePage from './add-course';

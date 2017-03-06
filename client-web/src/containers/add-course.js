@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { saveCourse, fetchCourse } from '../actions/courses';
+import { addOrUpdateItem, fetchCourse } from '../actions/courses';
 
 import { FlatButton, TextField } from 'material-ui';
 
@@ -132,7 +132,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   saveCourse: (course) => { //async
-    return dispatch(saveCourse(course));
+    return dispatch(addOrUpdateItem(course));
   },
   returnToList: () => {
     ownProps.push('/courses');
