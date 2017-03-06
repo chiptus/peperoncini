@@ -6,9 +6,13 @@ const Ingredient = require('./ingredients');
 
 const Course = new mongoose.Schema({
 	name: String,
+	description: String,
 	ingredients: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Ingredient'
+		id: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Ingredient'
+		},
+		value: Number,
 	}],
 });
 

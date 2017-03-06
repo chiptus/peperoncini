@@ -1,12 +1,15 @@
 const basicCrud = require('./basic-crud.controller');
 const Course = require('../models/courses');
+const {normalizeModel} = require('./utils');
 
 module.exports = {
   getList(req, res, next) {
     Course.find({})
-      .exec((err, result) => {
+      .exec((err, courses) => {
         if (err) throw err;
-        res.json(result);
+        
+        const normalCourses = courses.map(c => normalizeModel(c._doc));
+        res.json(normalCourses);
       });
   },
   add(req, res, next) {
@@ -18,21 +21,27 @@ module.exports = {
       res.status(400).send({ error: 'no name param provided' });
       return;
     }
-    Course.create({ name: req.body.name }, (err, data) => {
+    Course.create(req.body, (err, doc) => {
       if (err) throw err;
       
-      res.json(data);
+      res.json(normalizeModel(doc._doc));
     });
   },
   get(req, res) {
     Course.findOne({ _id: req.params.id }, { name: 1, _id: 0 })
       .exec((err, data) => {
         if (err) throw err;
-        res.json(data);
+      res.json(normalizeModel(data._doc));
+        
       });
   },
-  update(req, res) {
-    res.json({ message: `update ${name} id: ${req.params.id}` });
+  update({body: item}, res) {
+    item.ingredients = item.ingredients.map(i => Object.assign({}, i, {_id:i.id}));
+    Course.findByIdAndUpdate(item.id, item, {new: true})
+      .exec((err, result) => {
+        if (err) throw err;
+        res.json(normalizeModel(result._doc));
+      })
   },
   deleteItem(req, res) {
     Course.findByIdAndRemove(req.params.id)

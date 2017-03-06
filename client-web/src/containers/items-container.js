@@ -9,20 +9,25 @@ import { Switch, Route } from 'react-router-dom';
 // import AddCoursePage from './add-course';
 
 class ItemsContainer extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchItems();
   }
 
   render() {
-    const {itemsName, itemsPage: ItemsPage, addItemPage: AddItemPage, children} = this.props;
+    const { itemsName, itemsPage: ItemsPage, addItemPage: AddItemPage, isFetching = true } = this.props;
     return (
       <div>
-        <Switch>
-          <Route path={`/${itemsName}/add`} render={({ push }) => <AddItemPage push={push} />} />
-          <Route path={`/${itemsName}/edit/:id`} render={({ push, match: { params: { id } } }) => <AddItemPage {...{ push, id }} />} />
-          <Route path={`/${itemsName}/`} render={({ push }) => <ItemsPage {...{ push }} />} />
-        </Switch>
-        {children}
+        {
+          !isFetching ?
+            (
+              <Switch>
+                <Route path={`/${itemsName}/add`} render={({ push }) => <AddItemPage push={push} />} />
+                <Route path={`/${itemsName}/edit/:id`} render={({ push, match: { params: { id } } }) => <AddItemPage {...{ push, id }} />} />
+                <Route path={`/${itemsName}/`} render={({ push }) => <ItemsPage {...{ push }} />} />
+              </Switch>
+            )
+            : <div>isFetching</div>
+        }
       </div>
     );
   }
@@ -33,6 +38,7 @@ ItemsContainer.propTypes = {
   itemsName: PropTypes.string.isRequired,
   itemsPage: PropTypes.func.isRequired,
   addItemPage: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 

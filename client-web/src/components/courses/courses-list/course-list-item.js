@@ -1,30 +1,30 @@
-import React from 'react';
-import { Card, CardHeader, CardActions, IconButton } from 'material-ui';
+import React, { PropTypes } from 'react';
 
+import IngredientListItem from './ingredient-list-item';
 
-
-const CourseItem = ({id, name, onDelete, onEdit}) => {
+const CourseItemContent = ({ description, ingredients }) => {
   return (
-    <Card>
-      <CardHeader
-        title={name}
-      />
-      <CardActions>
-        <IconButton tooltip="Edit" iconClassName="fa fa-pencil" onTouchTap={onEdit} />
-        <IconButton tooltip="Delete" iconClassName="fa fa-trash-o" onClick={onDelete} />
-      </CardActions>
+    <div>
+      <div>
+        {description}
+      </div>
+      <div>
+        {ingredients.map(ing => <IngredientListItem {...ing} key={ing.id} />)}
+      </div>
 
-      
-
-    </Card>
+    </div>
   );
 };
 
-CourseItem.PropTypes = {
-  id: React.PropTypes.string.isRequired,
-  name: React.PropTypes.string.isRequired,
-  onEdit: React.PropTypes.func.isRequired,
-  onDelete: React.PropTypes.func.isRequired,
+CourseItemContent.PropTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  ingredients: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.number,
+    unit: PropTypes.string,
+  }))
 }
 
-export default CourseItem;
+export default CourseItemContent;

@@ -3,7 +3,7 @@ import request from 'superagent';
 import { SERVER_URL } from '../config';
 import { COURSES } from '../constants/actions';
 
-import { saveCourse } from './courses/save';
+import saveCourse from './courses/save';
 
 export {saveCourse};
 
@@ -15,6 +15,7 @@ export function fetchCoursesIfNeeded(){
     if (shouldFetchCourses(getState())) {
       return dispatch(fetchCourses())
     }
+    return Promise.resolve();
   }
 }
 
@@ -58,11 +59,7 @@ export function receivedCourses(courses) {
   return {
     type: COURSES.RECEIVED_COURSES,
     payload: {
-      items: courses.map(item => ({
-        id: item._id,
-        name: item.name,
-        ingredients: item.ingredients,
-      })),
+      items: courses,
       receivedAt: (new Date()).getTime(),
     }
   }

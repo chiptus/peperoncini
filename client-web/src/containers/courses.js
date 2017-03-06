@@ -12,8 +12,8 @@ import CoursesPage from './course-page';
 import AddCoursePage from './add-course';
 
 
-const CoursesContainer = ({fetchItems}) => (
-  <ItemsContainer fetchItems={fetchItems} itemsPage={CoursesPage} addItemPage={AddCoursePage} itemsName="courses"/>
+const CoursesContainer = ({fetchItems, isFetching}) => (
+  <ItemsContainer {...{fetchItems, isFetching}} itemsPage={CoursesPage} addItemPage={AddCoursePage} itemsName="courses"/>
 )
 
 CoursesContainer.propTypes = {
@@ -21,7 +21,7 @@ CoursesContainer.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-
+  isFetching: state.ingredients.isFetching && state.courses.isFetching,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

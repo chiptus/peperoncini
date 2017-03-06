@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import { SelectField, MenuItem, TextField } from 'material-ui';
+import { SelectField, MenuItem, TextField, FlatButton } from 'material-ui';
 
 const CourseIngInput = ({ ingredient, onChangeIngredientValue, ingredients, onDelete, onChangeIngredient }) => {
   return (
@@ -20,6 +20,7 @@ const CourseIngInput = ({ ingredient, onChangeIngredientValue, ingredients, onDe
         value={ingredient.value}
         id={'ing' + ingredient.id}
         onChange={({ target: { value } }) => onChangeIngredientValue(ingredient.id, value)} />
+      <FlatButton label="X" onTouchTap={() => onDelete(ingredient.id)}/>
     </div>
   );
 };

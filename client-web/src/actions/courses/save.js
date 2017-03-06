@@ -5,6 +5,7 @@ import { COURSES } from '../../constants/actions';
 import { SERVER_URL } from '../../config';
 
 export default function saveCourse(course) {
+  console.log(course.id);
   return dispatch => {
     dispatch(requestSaveCourse(course));
     return new Promise((resolve, reject) =>
