@@ -27,14 +27,14 @@ const CourseIngInput = ({ ingredient, onChangeIngredientValue, ingredients, onDe
 
 CourseIngInput.propTypes = {
   ingredient: PropTypes.shape({
-    id: PropTypes.string,
+    _id: PropTypes.string,
     value: PropTypes.number,
   }),
   onChangeIngredientValue: PropTypes.func.isRequired,
   onChangeIngredient: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   ingredients: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
   }))
 }

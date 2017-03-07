@@ -10,7 +10,7 @@ const IngredientListItem = ({name, value, unit}) => {
 
 IngredientListItem.propTypes = {
 
-  id: PropTypes.string.isRequired,
+  // _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.number,
   unit: PropTypes.string,

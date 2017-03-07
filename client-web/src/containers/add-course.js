@@ -35,12 +35,12 @@ class AddCoursePage extends React.Component {
 
   addIngredient = () => {
     this.setState({
-      ingredients: [...this.state.ingredients, { id: '', value: 0 }]
+      ingredients: [...this.state.ingredients, { _id: '', value: 0 }]
     })
   }
 
   onChangeIng = (id, newId) => {
-    this.updateIngredients(id, { id: newId });
+    this.updateIngredients(id, { _id: newId });
   }
 
   onChangeIngVal = (id, value) => {

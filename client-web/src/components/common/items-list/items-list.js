@@ -38,12 +38,12 @@ class ItemsList extends Component {
         <NavLink to={newItemLink}><FlatButton>הוסף פריט</FlatButton></NavLink>
         <div>
           {
-            items.map(({name, id, ...item}) => (
+            items.map(({name, _id, ...item}) => (
               <Item
-                key={id}
+                key={_id}
                 name={name}
-                onEdit={() => editItem(id)}
-                onDelete={() => this.handleOpen(id)}>
+                onEdit={() => editItem(_id)}
+                onDelete={() => this.handleOpen(_id)}>
                 {children ? children(item) : null}
               </Item>
             ))

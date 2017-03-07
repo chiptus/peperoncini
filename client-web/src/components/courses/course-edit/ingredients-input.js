@@ -22,13 +22,13 @@ const CourseIngredientsList = ({ ingredients, courseIngredients, onChangeIngredi
 
 CourseIngredientsList.propTypes = {
   ingredients: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     unit: PropTypes.string,
     price: PropTypes.number
   })),
   courseIngredients: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string,
     value: PropTypes.number,
   })),
   onChangeIngredient: PropTypes.func.isRequired,
