@@ -1,7 +1,6 @@
 const basicCrud = require('./basic-crud.controller');
 const Course = require('../models/courses');
 const Ingredient = require('../models/ingredients');
-const {normalizeModel} = require('./utils');
 
 module.exports = {
   getList(req, res, next) {
@@ -33,14 +32,14 @@ module.exports = {
     Course.create(req.body, (err, doc) => {
       if (err) throw err;
       
-      res.json(normalizeModel(doc._doc));
+      res.json((doc._doc));
     });
   },
   get(req, res) {
     Course.findOne({ _id: req.params.id }, { name: 1, _id: 0 })
       .exec((err, data) => {
         if (err) throw err;
-      res.json(normalizeModel(data._doc));
+      res.json((data._doc));
         
       });
   },
@@ -49,7 +48,7 @@ module.exports = {
     Course.findByIdAndUpdate(item.id, item, {new: true})
       .exec((err, result) => {
         if (err) throw err;
-        res.json(normalizeModel(result._doc));
+        res.json((result._doc));
       })
   },
   deleteItem(req, res) {

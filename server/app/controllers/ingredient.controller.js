@@ -1,21 +1,21 @@
 const basicCrud = require('./basic-crud.controller');
 const Ingredient = require('../models/ingredients');
 
-function normalIngredient(dbIng) {
-  return {
-    id: dbIng._id,
-    name: dbIng.name,
-    unit: dbIng.unit,
-    price: dbIng.price,
-  };
-}
+// function normalIngredient(dbIng) {
+//   return {
+//     id: dbIng._id,
+//     name: dbIng.name,
+//     unit: dbIng.unit,
+//     price: dbIng.price,
+//   };
+// }
 
 module.exports = {
   getList(req, res, next) {
     Ingredient.find({})
       .exec((err, result) => {
         if (err) throw err;
-        res.json(result.map(normalIngredient));
+        res.json(result);
       });
   },
   add(req, res, next) {
@@ -26,21 +26,21 @@ module.exports = {
     const ingredient = req.body;
     Ingredient.create(ingredient, (err, data) => {
       if (err) throw err;
-      res.json(normalIngredient(data));
+      res.json((data));
     });
   },
   get(req, res) {
     Ingredient.findOne({ _id: req.params.id }, { name: 1, _id: 1 })
       .exec((err, data) => {
         if (err) throw err;
-        res.json(normalIngredient(data));
+        res.json((data));
       });
   },
   update({body: item}, res) {
     Ingredient.findByIdAndUpdate(item.id, item, {new: true})
       .exec((err, result) => {
         if (err) throw err;
-        res.json(normalIngredient(result));
+        res.json((result));
       })
   },
   deleteItem(req, res) {
