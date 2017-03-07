@@ -1,5 +1,6 @@
 const basicCrud = require('./basic-crud.controller');
 const Course = require('../models/courses');
+const Ingredient = require('../models/ingredients');
 const {normalizeModel} = require('./utils');
 
 module.exports = {
@@ -8,8 +9,16 @@ module.exports = {
       .exec((err, courses) => {
         if (err) throw err;
         
-        const normalCourses = courses.map(c => normalizeModel(c._doc));
-        res.json(normalCourses);
+        const normalCourses = courses.map(c => (c._doc));
+        return Ingredient.find({})
+          .exec((err, ingredients) => {
+            if (err) throw err;
+            const normalIngredients = ingredients.map(i => (i._doc));
+            res.json({
+              courses: normalCourses,
+              ingredients: normalIngredients,
+            });
+          })
       });
   },
   add(req, res, next) {

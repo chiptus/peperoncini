@@ -52,13 +52,13 @@ export default function createItemIdReducer(actions) {
   function itemsReducer(items = [], { type, payload, error }) {
     switch (type) {
       case actions.ADD:
-        return addItem(items, payload.id);
+        return addItem(items, payload._id);
       case actions.DELETE:
         return deleteItem(items, payload);
       case actions.RECEIVED_LIST:
-        return payload.map(({ id }) => id);
+        return payload.map(({ _id }) => _id);
       case actions.RECEIVED_ITEM:
-        return [payload.id];
+        return [payload._id];
 
       case actions.FETCH_ITEM:
       case actions.REQUEST_DELETE:

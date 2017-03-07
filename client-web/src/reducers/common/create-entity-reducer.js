@@ -8,22 +8,22 @@ export default function createEntityReducer(actions) {
       case actions.ADD:
         return {
           ...state,
-          [payload.id]: {
-            ...state[payload.id],
+          [payload._id]: {
+            ...state[payload._id],
             ...payload,
           },
         };
       case actions.DELETE:
         return {
           ...state,
-          [payload.id]: undefined,
+          [payload._id]: undefined,
         };
       case actions.RECEIVED_LIST:
         return {
           ...payload.reduce((items, current) => {
             return {
               ...items,
-              [current.id]: current,
+              [current._id]: current,
             }
           }, {})
         }

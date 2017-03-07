@@ -16,7 +16,7 @@ const AddItemPage = (itemsName, addOrUpdateItem, fetchItemsIfNeeded) => {
     }
 
     componentDidUpdate() {
-      if (this.state.id) {
+      if (this.state._id) {
         return;
       }
       this.setState({
@@ -31,7 +31,7 @@ const AddItemPage = (itemsName, addOrUpdateItem, fetchItemsIfNeeded) => {
     submit = () => {
       const { name, } = this.state
       const item = {
-        id: this.props.item.id,
+        id: this.props.item._id,
         name,
       }
       if (!item.name) {

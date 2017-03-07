@@ -9,7 +9,7 @@ const CourseItemContent = ({ description, ingredients }) => {
         {description}
       </div>
       <div>
-        {ingredients.map(ing => <IngredientListItem {...ing} key={ing.id} />)}
+        {ingredients.map(ing => <IngredientListItem {...ing} key={ing._id} />)}
       </div>
 
     </div>

@@ -1,6 +1,7 @@
 import request from 'superagent';
 
-export default function createFetchItemsActionCreators(serverUrl, actions, itemsName) {
+export default function createFetchItemsActionCreators(serverUrl, actions, itemsName, options = {}) {
+ 
   return {
     fetchItemsIfNeeded
   }
@@ -44,6 +45,13 @@ export default function createFetchItemsActionCreators(serverUrl, actions, items
   }
 
   function receiveItems(items) {
+    if (options.receiveItems){
+      return options.receiveItems(receiveItemsOriginal, items)
+    }
+    return receiveItemsOriginal(items)
+  }
+
+  function receiveItemsOriginal(items) {
     return {
       type: actions.RECEIVED_LIST,
       payload: items,

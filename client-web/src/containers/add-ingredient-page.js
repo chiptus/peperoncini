@@ -20,7 +20,7 @@ class AddItemPage extends React.Component {
 
 
   componentDidUpdate() {
-    if (this.state.id) {
+    if (this.state._id) {
       return;
     }
     this.setState({
@@ -35,7 +35,7 @@ class AddItemPage extends React.Component {
   submit = () => {
     const {name, unit, price} = this.state
     const item = {
-      id: this.props.item.id,
+      id: this.props.item._id,
       name,
       unit,
       price,

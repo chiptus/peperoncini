@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import ItemsContainer from './items-container';
 
 import {fetchItemsIfNeeded as fetchCoursesIfNeeded} from '../actions/courses'
-import {fetchItemsIfNeeded as fetchIngredientsIfNeeded} from '../actions/ingredients';
 import CoursesPage from './course-page';
 import AddCoursePage from './add-course';
 
@@ -26,7 +25,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchItems: () => dispatch(fetchCoursesIfNeeded())
-    .then(dispatch(fetchIngredientsIfNeeded()))
+    // .then(dispatch(fetchIngredientsIfNeeded()))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesContainer);

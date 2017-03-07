@@ -6,7 +6,7 @@ export default function createUpdateItemActionCreators(serverUrl, actions, items
   function updateItem(item) {
     return dispatch => {
       dispatch(requestUpdateItem(item));
-      return request.post(`${serverUrl}/api/${itemsName}/${item.id}`)
+      return request.post(`${serverUrl}/api/${itemsName}/${item._id}`)
         .send(item)
         .then(
         response => dispatch(updateItemSuccess(response.body)),
@@ -18,7 +18,7 @@ export default function createUpdateItemActionCreators(serverUrl, actions, items
   function requestUpdateItem(item) {
     return {
       type: actions.REQUEST_UPDATE,
-      payload: item.id,
+      payload: item._id,
     }
   }
 

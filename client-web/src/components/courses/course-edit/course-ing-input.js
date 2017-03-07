@@ -7,20 +7,20 @@ const CourseIngInput = ({ ingredient, onChangeIngredientValue, ingredients, onDe
     <div>
       <SelectField
         style={{ verticalAlign: 'bottom' }}
-        value={ingredient.id}
+        value={ingredient._id}
         floatingLabelText="רכיב"
-        onChange={(e, key, selectedId) => onChangeIngredient(ingredient.id, selectedId)} >
+        onChange={(e, key, selectedId) => onChangeIngredient(ingredient._id, selectedId)} >
         {
-          ingredients.map(ing => <MenuItem value={ing.id} key={ing.id} primaryText={ing.name} />)
+          ingredients.map(ing => <MenuItem value={ing._id} key={ing._id} primaryText={ing.name} />)
         }
       </SelectField>
       <TextField type="number"
         floatingLabelText="כמות"
-        disabled={!ingredient.id}
+        disabled={!ingredient._id}
         value={ingredient.value}
-        id={'ing' + ingredient.id}
-        onChange={({ target: { value } }) => onChangeIngredientValue(ingredient.id, value)} />
-      <FlatButton label="X" onTouchTap={() => onDelete(ingredient.id)}/>
+        id={'ing' + ingredient._id}
+        onChange={({ target: { value } }) => onChangeIngredientValue(ingredient._id, value)} />
+      <FlatButton label="X" onTouchTap={() => onDelete(ingredient._id)}/>
     </div>
   );
 };

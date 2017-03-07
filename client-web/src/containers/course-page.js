@@ -32,24 +32,29 @@ CoursesPage.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  //console.log(state.entities);
+
   return ({
     courses: state.courses.items
       .map(id => state.entities.courses[id])
       .map(item => {
         return {
           ...item,
-          ingredients: item.ingredients.map(ing => ({
-            id: ing.id,
-             name: state.entities.ingredients[ing.id] && state.entities.ingredients[ing.id].name,
-            // unit: state.entities.ingredients[ing.id].unit,
-            value: ing.value,
-          }))
+          ingredients: item.ingredients.map(ing => {
+            console.log(state.entities.ingredients[ing._id])
+            
+            return {
+              id: ing._id,
+              name: state.entities.ingredients[ing._id] && state.entities.ingredients[ing._id].name,
+              // unit: state.entities.ingredients[ing._id].unit,
+              value: ing.value,
+            }
+          })
         }
       }),
-  
-  //  ingredients: state.ingredients.items.map(id => state.entities.ingredients[id])
-});}
+
+    //  ingredients: state.ingredients.items.map(id => state.entities.ingredients[id])
+  });
+}
 
 const mapDispatchToProps = (dispatch) => ({
   deleteCourse: (courseId) => dispatch(deleteCourse(courseId)),

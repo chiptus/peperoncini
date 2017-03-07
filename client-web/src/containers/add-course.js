@@ -16,13 +16,12 @@ class AddCoursePage extends React.Component {
         name: '',
       },
       ingredientsList: this.props.ingredients
-      // .filter(ing => this.props.item.ingredients.findIndex(i2 => i2.id === ing.id) > -1),
     }
 
   }
 
   componentDidUpdate() {
-    if (this.props.item.id && !this.state.id) {
+    if (this.props.item._id && !this.state._id) {
       this.setState({
         ...this.props.item
       });
@@ -50,7 +49,7 @@ class AddCoursePage extends React.Component {
 
   updateIngredients(id, ingredient) {
     const ingredients = this.state.ingredients.map(ing => {
-      if (ing.id !== id) {
+      if (ing._id !== id) {
         return ing;
       }
       return {
@@ -62,7 +61,7 @@ class AddCoursePage extends React.Component {
   }
 
   onDeleteIng = (id) => {
-    const ingredients = this.state.ingredients.filter(ing => ing.id !== id);
+    const ingredients = this.state.ingredients.filter(ing => ing._id !== id);
     this.setState({ ingredients });
   }
 
