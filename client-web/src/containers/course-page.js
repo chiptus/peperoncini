@@ -1,7 +1,7 @@
 import React, { Component }/*, { PropTypes } */ from 'react';
 import { connect } from 'react-redux';
 
-import { deleteCourse } from '../actions/courses';
+import { deleteItem } from '../actions/courses';
 import CourseList from '../components/courses/courses-list/courses-list';
 
 class CoursesPage extends Component {
@@ -40,12 +40,15 @@ const mapStateToProps = (state) => {
         return {
           ...item,
           ingredients: item.ingredients.map(ing => {
-            console.log(state.entities.ingredients[ing._id])
-            
+            // console.log(ing._id, state.entities.ingredients[ing._id])
+            if (!state.entities.ingredients[ing._id]) {
+              return ing;
+            }
             return {
-              id: ing._id,
-              name: state.entities.ingredients[ing._id] && state.entities.ingredients[ing._id].name,
-              // unit: state.entities.ingredients[ing._id].unit,
+              _id: ing._id,
+              name: state.entities.ingredients[ing._id].name,
+              unit: state.entities.ingredients[ing._id].unit,
+              price: state.entities.ingredients[ing._id].price,
               value: ing.value,
             }
           })
@@ -57,7 +60,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteCourse: (courseId) => dispatch(deleteCourse(courseId)),
+  deleteCourse: (courseId) => dispatch(deleteItem(courseId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);

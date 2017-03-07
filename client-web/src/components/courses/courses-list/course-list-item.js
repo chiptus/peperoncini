@@ -6,6 +6,16 @@ const CourseItemContent = ({ description, ingredients }) => {
   return (
     <div>
       <div>
+        <span>מחיר למנה: </span>
+        <span>
+          {
+            ingredients.reduce((sum, cur) => sum + (cur.price * cur.value), 0)
+          }
+        </span>
+        <span> ש"ח </span>
+      </div>
+
+      <div>
         {description}
       </div>
       <div>
@@ -20,7 +30,7 @@ CourseItemContent.PropTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   ingredients: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.number,
     unit: PropTypes.string,
