@@ -14,18 +14,17 @@ class AddItemPage extends React.Component {
     super(props);
     this.state = {
       nameError: '',
-        ...this.props.item,
+      ...this.props.item,
     }
   }
 
 
   componentDidUpdate() {
-    if (this.state._id) {
-      return;
+    if (this.props.item._id && !this.state._id) {
+      this.setState({
+        ...this.props.item
+      });
     }
-    this.setState({
-      ...this.props.item
-    })
   }
 
   returnToList = () => {
@@ -33,7 +32,7 @@ class AddItemPage extends React.Component {
   }
 
   submit = () => {
-    const {name, unit, price} = this.state
+    const { name, unit, price } = this.state
     const item = {
       id: this.props.item._id,
       name,
@@ -41,7 +40,7 @@ class AddItemPage extends React.Component {
       price,
     }
     if (!item.name) {
-      this.setState({nameError: 'שדה זה הוא חובה'});
+      this.setState({ nameError: 'שדה זה הוא חובה' });
       return;
     }
     this.props.saveItem(item)
@@ -49,14 +48,14 @@ class AddItemPage extends React.Component {
   }
 
   render() {
-    const {name, unit, price} = this.state;
+    const { name, unit, price } = this.state;
     return (
       <div>
         <form>
           <div>
             <TextField
               value={name || ""}
-              onChange={({target: {value}}) => this.setState({name:value})}
+              onChange={({ target: { value } }) => this.setState({ name: value })}
               floatingLabelText={"שם"}
               errorText={this.state.nameError}
             />
@@ -64,15 +63,15 @@ class AddItemPage extends React.Component {
           <div>
             <TextField
               value={unit || ""}
-              onChange={({target: {value}}) => this.setState({unit:value})}
-              
+              onChange={({ target: { value } }) => this.setState({ unit: value })}
+
               floatingLabelText="יחידה"
             />
           </div>
           <div>
             <TextField
               value={price || ""}
-              onChange={({target: {value}}) => this.setState({price:value})}
+              onChange={({ target: { value } }) => this.setState({ price: value })}
               type="number"
               floatingLabelText="מחיר"
             />
@@ -87,7 +86,7 @@ class AddItemPage extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   let item = (ownProps.id) && state.entities[itemsName][ownProps.id];
-  item = Object.assign({}, {name: '', unit: '', price:''},item)
+  item = Object.assign({}, { name: '', unit: '', price: '' }, item)
   return { item };
 };
 
