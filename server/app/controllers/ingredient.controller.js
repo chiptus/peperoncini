@@ -1,6 +1,8 @@
 const basicCrud = require('./basic-crud.controller');
 const Ingredient = require('../models/ingredients');
 
+const Course = require('../models/courses');
+
 // function normalIngredient(dbIng) {
 //   return {
 //     id: dbIng._id,
@@ -36,16 +38,30 @@ module.exports = {
         res.json((data));
       });
   },
-  update({body: item}, res) {
-    Ingredient.findByIdAndUpdate(item.id, item, {new: true})
+  update({ body: item }, res) {
+    Ingredient.findByIdAndUpdate(item.id, item, { new: true })
       .exec((err, result) => {
         if (err) throw err;
         res.json((result));
       })
   },
-  deleteItem(req, res) {
-    Ingredient.findByIdAndRemove(req.params.id)
+  deleteItem({ params: { id } }, res) {
+    Ingredient.findByIdAndRemove(id)
       .exec()
-      .then(doc => res.send({ success: true, document: doc }));
+      .then(() => removeIngredientFromCourses(id))
+      .then(() => res.json({success:true}))
+      .catch((err) => res.status(400).json({error:err}));
+
   }
 };
+
+
+function removeIngredientFromCourses(id) {
+  return Course.find({ 'ingredients._id': id }).exec()
+    .then(docs => {
+      docs.forEach(doc => {
+        doc.ingredients.id(id).remove();
+        doc.save();
+      })
+    });
+}
