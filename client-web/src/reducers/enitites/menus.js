@@ -1,8 +1,8 @@
-import {INGREDIENTS} from '../../constants/actions';
+import {MENUS} from '../../constants/actions';
+import createEntityReducer from '../common/create-entity-reducer'
+
+const baseReducer = createEntityReducer(MENUS);
 
 export default function ingEntitiesReducer(state = {}, {type, payload, error}){
-  switch (type) {
-    default:
-      return state;
-  }
+  return baseReducer(state, {type, payload, error});
 }
