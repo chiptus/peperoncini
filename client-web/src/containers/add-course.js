@@ -67,12 +67,12 @@ class AddCoursePage extends React.Component {
 
   submit = (e) => {
     e.preventDefault();
-    const { name, description, ingredients, id } = this.state;
+    const { name, description, ingredients, _id } = this.state;
     if (!name) {
       this.setState({ error: { name: "חובה למלא שדה זה" } })
       return false;
     }
-    this.props.saveCourse({ name, description, ingredients, id })
+    this.props.saveCourse({ name, description, ingredients, _id })
       .then(t => this.props.returnToList());
   }
 
