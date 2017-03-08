@@ -1,2 +1,2 @@
 #!/bin/bash
-(code ./server) ; (code ./client-web)
+(code ./server) ; (code ./client-web) ; (sudo service mongod start)
