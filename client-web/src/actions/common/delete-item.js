@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-export default function createDeleteItemActionCreators(serverUrl, actions, itemsName) {
+export default function createDeleteItemActionCreators(serverUrl, actions, itemsName, options = {}) {
   return {deleteItem}
 
   function deleteItem(itemId) {
@@ -9,7 +9,7 @@ export default function createDeleteItemActionCreators(serverUrl, actions, items
       return request
         .delete(`${serverUrl}/api/${itemsName}/${itemId}`)
         .then(
-        request => dispatch(deleteItemSuccess(itemId)),
+        request => dispatch(deleteItemSuccessWrapper(itemId)),
         error => dispatch(deleteItemFail(error))
         );
     }
@@ -20,6 +20,13 @@ export default function createDeleteItemActionCreators(serverUrl, actions, items
       type: actions.REQUEST_DELETE,
       payload: itemId,
     }
+  }
+
+  function deleteItemSuccessWrapper(itemId) {
+    if (!options.deleteItemSuccess) {
+      return deleteItemSuccess(itemId);
+    }
+    return options.deleteItemSuccess(deleteItemSuccess, itemId);
   }
 
   function deleteItemSuccess(itemId) {
