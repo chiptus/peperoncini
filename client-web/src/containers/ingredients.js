@@ -36,7 +36,7 @@ IngredientsContainer.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return ({
     // items: !state.ingredients.isFetching ? state.ingredients.items.map(id => state.entities.ingredients[id]) : [],
-    isFetching: !state.ingredients.items.length,
+    isFetching: state.ingredients.isFetching,
   })
 }
 
