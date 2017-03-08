@@ -44,8 +44,13 @@ module.exports = {
       });
   },
   update({body: item}, res) {
-    item.ingredients = item.ingredients.map(i => Object.assign({}, i, {_id:i.id}));
-    Course.findByIdAndUpdate(item.id, item, {new: true})
+    if (!item) {
+      res.status(400).send({ error: 'no course object provided' });;      
+    }
+    if (!item._id) {
+      res.status(400).send({ error: 'no course id provided' });;      
+    }
+    Course.findByIdAndUpdate(item._id, item, {new: true})
       .exec((err, result) => {
         if (err) throw err;
         res.json((result._doc));
