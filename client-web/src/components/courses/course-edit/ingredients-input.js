@@ -18,7 +18,6 @@ const CourseIngredientsList = ({ ingredients, courseIngredients, onChangeIngredi
   );
 };
 
-// console.log(PropTypes.sha)
 
 CourseIngredientsList.propTypes = {
   ingredients: PropTypes.arrayOf(PropTypes.shape({
