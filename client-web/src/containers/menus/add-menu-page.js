@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addOrUpdateItem, fetchCourse } from '../../actions/courses';
+import { addOrUpdateItem, fetchItem } from '../../actions/menus';
 
 import { FlatButton, TextField } from 'material-ui';
 
-import IngredientsInputList from '../../components/courses/course-edit/ingredients-input';
+ import CoursesInputList from '../../components/common/sub-item-input-list';
 
-class AddCoursePage extends React.Component {
+class AddMenuPage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -15,7 +15,7 @@ class AddCoursePage extends React.Component {
       error: {
         name: '',
       },
-      ingredientsList: this.props.ingredients
+      // ingredientsList: this.props.ingredients
     }
 
   }
@@ -33,22 +33,25 @@ class AddCoursePage extends React.Component {
   }
 
 
-  addIngredient = () => {
+  addCourse = () => {
     this.setState({
-      ingredients: [...this.state.ingredients, { _id: '', value: 0 }]
+      courses: [...this.state.courses, { _id: '', value: 0 }]
     })
   }
 
-  onChangeIng = (id, newId) => {
-    this.updateIngredients(id, { _id: newId });
+  onChangeCourse = (id, newId) => {
+    this.updateCourses(id, { _id: newId });
   }
 
-  onChangeIngVal = (id, value) => {
-    this.updateIngredients(id, { value: +value });
+  onChangeCourseValue = (id, value) => {
+    if (value < 0){
+      return;
+    }
+    this.updateCourses(id, { value: +value });
   }
 
-  updateIngredients(id, ingredient) {
-    const ingredients = this.state.ingredients.map(ing => {
+  updateCourses(id, ingredient) {
+    const courses = this.state.courses.map(ing => {
       if (ing._id !== id) {
         return ing;
       }
@@ -57,22 +60,22 @@ class AddCoursePage extends React.Component {
         ...ingredient
       }
     })
-    this.setState({ ingredients });
+    this.setState({ courses });
   }
 
-  onDeleteIng = (id) => {
+  onDeleteCourse = (id) => {
     const ingredients = this.state.ingredients.filter(ing => ing._id !== id);
     this.setState({ ingredients });
   }
 
   submit = (e) => {
     e.preventDefault();
-    const { name, description, ingredients, _id } = this.state;
+    const { name, description, courses, _id } = this.state;
     if (!name) {
       this.setState({ error: { name: "חובה למלא שדה זה" } })
       return false;
     }
-    this.props.saveCourse({ name, description, ingredients, _id })
+    this.props.saveItem({ name, description, courses, _id })
       .then(t => this.props.returnToList());
   }
 
@@ -80,7 +83,7 @@ class AddCoursePage extends React.Component {
     const {
       name,
       description,
-      ingredients: courseIngredients,
+      courses,
     } = this.state;
     return (
       <div>
@@ -104,14 +107,14 @@ class AddCoursePage extends React.Component {
             />
           </div>
           <div>
-            <h2>רכיבים</h2>
-            <FlatButton onClick={this.addIngredient}>הוסף רכיב</FlatButton>
-            <IngredientsInputList
-              ingredients={this.props.ingredients}
-              courseIngredients={courseIngredients}
-              onChangeIngredient={this.onChangeIng}
-              onChangeIngredientValue={this.onChangeIngVal}
-              onDelete={this.onDeleteIng} />
+            <h2>מנות</h2>
+            <FlatButton onClick={this.addCourse}>הוסף מנה</FlatButton>
+            <CoursesInputList
+              subItems={this.props.courses}
+              selectedSubItems={courses}
+              onChangeSubItem={this.onChangeCourse}
+              onChangeSubItemValue={this.onChangeCourseValue}
+              onDelete={this.onDeleteCourse} />
           </div>
           <FlatButton onClick={this.submit}>שמור</FlatButton>
         </form>
@@ -121,24 +124,24 @@ class AddCoursePage extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let item = (ownProps.id) && state.entities['courses'][ownProps.id];
-  item = Object.assign({}, { name: '', ingredients: [] }, item);
+  let item = (ownProps.id) && state.entities.menus[ownProps.id];
+  item = Object.assign({}, { name: '', courses: [] }, item);
   return {
     item,
-    ingredients: state.ingredients.items.map(id => state.entities.ingredients[id])
+    courses: state.courses.items.map(id => state.entities.courses[id])
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  saveCourse: (course) => { //async
-    return dispatch(addOrUpdateItem(course));
+  saveItem: (item) => { //async
+    return dispatch(addOrUpdateItem(item));
   },
   returnToList: () => {
-    ownProps.push('/courses');
+    ownProps.push('/menus');
   },
   fetchCourse: () => {
-    return dispatch(fetchCourse(ownProps.id));
+    return dispatch(fetchItem(ownProps.id));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddCoursePage);
+export default connect(mapStateToProps, mapDispatchToProps)(AddMenuPage);

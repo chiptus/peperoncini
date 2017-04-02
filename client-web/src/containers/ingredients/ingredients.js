@@ -5,7 +5,7 @@ import IngredientsPage from './ingredients-page';
 import AddIngredientPage from './add-ingredient-page';
 
 import { connect } from 'react-redux';
-import { fetchItemsIfNeeded } from '../actions/ingredients';
+import { fetchItemsIfNeeded } from '../../actions/ingredients';
 
 class IngredientsContainer extends Component {
   componentWillMount() {

@@ -5,7 +5,14 @@ const Course = require('./courses');
 
 const Menu = new mongoose.Schema({
 	name: String,
-	courses: [{ type: mongoose.Schema.ObjectId, ref: 'Course' }],
+	description: String,
+	courses: [{
+		_id: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Course',
+		},
+		value: Number
+	}],
 });
 
 module.exports = mongoose.model('Menu', Menu);

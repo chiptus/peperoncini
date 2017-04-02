@@ -4,9 +4,10 @@ import React, { PropTypes } from 'react';
 
 import { connect } from 'react-redux';
 
-import ItemsContainer from './items-container';
+import ItemsContainer from '../common/items-container';
 
-import {fetchItemsIfNeeded as fetchCoursesIfNeeded} from '../actions/courses'
+import {fetchItemsIfNeeded as fetchCoursesIfNeeded} from '../../actions/courses'
+
 import CoursesPage from './course-page';
 import AddCoursePage from './add-course';
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { FlatButton, TextField } from 'material-ui';
 
-import { addOrUpdateItem, fetchItemsIfNeeded } from '../actions/ingredients';
+import { addOrUpdateItem, fetchItemsIfNeeded } from '../../actions/ingredients';
 
 
 const itemsName = 'ingredients'

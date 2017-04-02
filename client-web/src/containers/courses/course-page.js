@@ -1,8 +1,8 @@
 import React, { Component }/*, { PropTypes } */ from 'react';
 import { connect } from 'react-redux';
 
-import { deleteItem } from '../actions/courses';
-import CourseList from '../components/courses/courses-list/courses-list';
+import { deleteItem } from '../../actions/courses';
+import CourseList from '../../components/courses/courses-list/courses-list';
 
 class CoursesPage extends Component {
   editCourse = (id) => {

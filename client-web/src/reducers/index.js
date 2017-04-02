@@ -4,10 +4,14 @@ import courses from './courses';
 import auth from './auth';
 import entities from './enitites';
 import ingredients from './ingredients'
+import menus from './menus';
+import events from './events';
 
 export default combineReducers({
   courses,
   auth,
   entities,
   ingredients,
+  menus,
+  events,
 });

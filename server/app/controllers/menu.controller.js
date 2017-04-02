@@ -1,20 +1,27 @@
 const basicCrud = require('./basic-crud.controller');
 const Menu = require('../models/menus');
-
+const Course = require('../models/courses');
 module.exports = {
   getList(req, res, next) {
-    Menu.find({})
-      .exec((err, result) => {
-        if (err) throw err;
-        res.json(result);
-      });
+    Promise.all([
+      Menu.find({})
+        .exec((err, result) => {
+          if (err) throw err;
+          return result;
+        }),
+      Course.find({})
+        .exec()
+    ])
+    .then(([menus, courses]) => {
+      res.json({menus, courses});
+    });
   },
   add(req, res, next) {
     if (!req.body.name) {
       res.send({ error: 'no name param provided' });
       return;
     }
-    Menu.create({ name: req.body.name }, (err, data) => {
+    Menu.create(req.body, (err, data) => {
       if (err) throw err;
       res.json(data);
     });
@@ -26,8 +33,16 @@ module.exports = {
         res.json(data);
       });
   },
-  update(req, res) {
-    res.json({ message: `update ${name} id: ${req.params.id}` });
+  update({body: item, params: {id}}, res) {
+    if (!item) {
+      res.status(400).send({ error: 'no menu object provided' });;      
+    }
+    // console.log(id, item);
+    Menu.findByIdAndUpdate(id, item, {new: true})
+      .exec((err, result) => {
+        if (err) throw err;
+        res.json((result));
+      })
   },
   deleteItem(req, res) {
     Menu.findByIdAndRemove(req.params.id)

@@ -1,4 +1,7 @@
 import {MENUS} from '../constants/actions';
+import createItemIdReducer from './common/create-item-id-reducer';
+
+const reducer = createItemIdReducer(MENUS);
 
 const defaultState = {
   isFetching: false,
@@ -6,8 +9,5 @@ const defaultState = {
 };
 
 export default function menuReducer(state = defaultState, {type, payload, error}){
-  switch (type) {
-    default:
-      return state;
-  }
+  return reducer(state, {type, payload, error})
 }

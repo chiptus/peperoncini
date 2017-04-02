@@ -11,6 +11,7 @@ import auth from './auth/auth';
 
 import IngredientsContainer from './containers/ingredients';
 import CoursesContainer from './containers/courses';
+import MenusContainer from './containers/menus';
 
 import theme from './theme';
 
@@ -46,7 +47,7 @@ class App extends Component {
             <div className="container">
               <Header toggleDrawer={this.toggleDrawer} />
               <div className="content">
-                <Route path="/menus" render={() => <div>menu</div>} />
+                <Route path="/menus" component={MenusContainer} />
                 <Route path="/events" render={() => <div>events</div>} />
                 <Route path="/ingredients" component={IngredientsContainer} />
                 <Route path="/courses" component={CoursesContainer} />

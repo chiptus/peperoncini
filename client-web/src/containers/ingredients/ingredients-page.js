@@ -1,10 +1,10 @@
 import React, { Component }/*, { PropTypes } */ from 'react';
 import { connect } from 'react-redux';
 
-import ItemsList from '../components/common/items-list';
-import ItemContent from '../components/ingredients/ingredient-item';
+import ItemsList from '../../components/common/items-list';
+import ItemContent from '../../components/ingredients/ingredient-item';
 
-import { deleteItem } from '../actions/ingredients';
+import { deleteItem } from '../../actions/ingredients';
 
 const itemsName = 'ingredients';
 
