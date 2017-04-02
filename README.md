@@ -48,14 +48,14 @@ Can a user see the things he created? or everything in the system?
 Operations
 -----------
 
-###Ingredient
+### Ingredient
 
   - Add
   - Delete
     - When deleted should update all courses using it
   - Edit
 
-###Course
+### Course
 
   - Add
     - Should be able to add new ingredients on add or delete
@@ -63,23 +63,23 @@ Operations
     - When deleted should update all menus using it    
   - Edit
 
-###Menu
+### Menu
   - Add
   - Delete
     - When deleted should update all events using it    
   - Edit
 
-###Event
+### Event
   - Add
   - Delete
   - Edit
 
-###Category
+### Category
   - Add
   - Delete
   - Edit
 
-###User
+### User
   - Login
   - Logout
 
