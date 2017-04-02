@@ -1,7 +1,7 @@
 import createEntityReducer from '../common/create-entity-reducer';
 
 import { COURSES, INGREDIENTS } from '../../constants/actions';
-
+import { removeSubDocFromState } from '../common/utils';
 const courseEntityReducer = createEntityReducer(COURSES);
 
 export default (state = {}, action) => {
@@ -10,15 +10,8 @@ export default (state = {}, action) => {
   }
   switch (action.type) {
     case INGREDIENTS.DELETE:
-      return Object.assign({}, state, {
-        items: Object.keys(state).map(courseId => {
-          return {
-            ...state[courseId],
-            ingredients: state[courseId].ingredients.filter(ing => ing._id !== action.payload._id)
-          }
-        })
-      })
+      return removeSubDocFromState(state, 'ingredients', action.payload._id);
     default:
       return state;
   }
-}
+};
