@@ -8,9 +8,7 @@ const ItemContent = ({ description, courses = [] }) => {
       <div>
         <span>מחיר: </span>
         <span>
-          {
-            courses.reduce((sum, cur) => sum + (cur.price * cur.value), 0)
-          }
+          {courses.reduce((sum, cur) => sum + cur.price * cur.value, 0)}
         </span>
         <span> ש"ח </span>
       </div>
@@ -18,8 +16,11 @@ const ItemContent = ({ description, courses = [] }) => {
       <div>
         {description}
       </div>
+      <h2> רשימת מנות</h2>
       <div>
-        {/*{courses.map(ing => <IngredientListItem {...ing} key={ing._id} />)}*/}
+        {courses.map(({ _id, name, value }) => (
+          <div key={_id}>{`${value} ${name}`}</div>
+        ))}
       </div>
 
     </div>
@@ -29,12 +30,14 @@ const ItemContent = ({ description, courses = [] }) => {
 ItemContent.PropTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  ingredients: PropTypes.arrayOf(PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.number,
-    price: PropTypes.number,
-  }))
-}
+  ingredients: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
+      price: PropTypes.number.isRequired,
+    })
+  ),
+};
 
 export default ItemContent;
