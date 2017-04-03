@@ -4,14 +4,20 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { NavLink } from 'react-router-dom';
 
-const Main = ({openDrawer, toggleDrawer}) => {
+const Main = ({ openDrawer, toggleDrawer }) => {
   return (
     <Drawer open={openDrawer} docked={false}>
-      <MenuItem secondaryText={'X'} onTouchTap={toggleDrawer}></MenuItem>
-      <NavLink to="/courses" activeClassName="active"><MenuItem onTouchTap={toggleDrawer}>מנות</MenuItem></NavLink>
-      <NavLink to="/menus" activeClassName="active"><MenuItem onTouchTap={toggleDrawer}>תפריטים</MenuItem></NavLink>
-      <NavLink to="/events" activeClassName="active"><MenuItem onTouchTap={toggleDrawer}>אירועים</MenuItem></NavLink>
-      <NavLink to="/ingredients" activeClassName="active"><MenuItem onTouchTap={toggleDrawer}>רכיבים</MenuItem></NavLink>
+      <MenuItem secondaryText={'X'} onTouchTap={toggleDrawer} />
+      <NavLink to="/menus" activeClassName="active">
+        <MenuItem onTouchTap={toggleDrawer}>תפריטים</MenuItem>
+      </NavLink>
+      <NavLink to="/courses" activeClassName="active">
+        <MenuItem onTouchTap={toggleDrawer}>מנות</MenuItem>
+      </NavLink>
+      <NavLink to="/ingredients" activeClassName="active">
+        <MenuItem onTouchTap={toggleDrawer}>רכיבים</MenuItem>
+      </NavLink>
+      {/*<NavLink to="/events" activeClassName="active"><MenuItem onTouchTap={toggleDrawer}>אירועים</MenuItem></NavLink>*/}
     </Drawer>
   );
 };
@@ -19,10 +25,10 @@ const Main = ({openDrawer, toggleDrawer}) => {
 Main.propTypes = {
   openDrawer: React.PropTypes.bool,
   toggleDrawer: React.PropTypes.func.isRequired,
-}
+};
 
 Main.defaultProps = {
   openDrawer: false,
-}
+};
 
 export default Main;
