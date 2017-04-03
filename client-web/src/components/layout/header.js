@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 const Header = ({ toggleDrawer, login }) => {
   return (
     <AppBar
-      title="מחשבון הכמויות של פפרוצ'יני"
+      title="מחשבון הכמויות של Peperoncini"
       onLeftIconButtonTouchTap={toggleDrawer}>
       {/*<button onClick={login}>Login</button>*/}
     </AppBar>
