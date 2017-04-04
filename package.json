@@ -9,8 +9,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently 'cd ./client-web && yarn start' 'cd ./server && nodemon server.js'",
-    "start": "concurrently 'cd ./client-web && yarn build' 'cd ./server && yarn run dev'",
+    "dev": "concurrently 'cd ./client-web && yarn start' 'cd ./server && yarn run dev'",
+    "start": "concurrently 'cd ./client-web && yarn build' 'cd ./server && yarn start'",
     "postinstall": "concurrently 'cd server && yarn' 'cd client-web && yarn'"
   },
   "engines": {
