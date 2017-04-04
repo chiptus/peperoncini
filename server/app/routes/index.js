@@ -13,7 +13,10 @@ const menuCtrl = require('../controllers/menu.controller');
 const userCtrl = require('../controllers/user');
 
 module.exports = function(app, passport) {
-  app.use('/', express.static(path.join(__dirname, '../../client-web/build/')));
+  app.use(
+    '/',
+    express.static(path.join(__dirname, '../../../client-web/public/'))
+  );
 
   app.post('/auth/facebook', ({ body: { socialToken } }, res, next) => {
     validateWithFacebook(socialToken)
@@ -48,7 +51,15 @@ module.exports = function(app, passport) {
 
   app.get('*', (req, res) => {
     res.sendFile(
-      path.resolve(__dirname, '..', '..', 'client-web', 'build', 'index.html')
+      path.resolve(
+        __dirname,
+        '..',
+        '..',
+        '..',
+        'client-web',
+        'public',
+        'index.html'
+      )
     );
   });
 };
