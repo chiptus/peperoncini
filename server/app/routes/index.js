@@ -15,7 +15,7 @@ const userCtrl = require('../controllers/user');
 module.exports = function(app, passport) {
   app.use(
     '/',
-    express.static(path.join(__dirname, '../../../client-web/public/'))
+    express.static(path.join(__dirname, '../../../client-web/build/'))
   );
 
   app.post('/auth/facebook', ({ body: { socialToken } }, res, next) => {
@@ -57,7 +57,7 @@ module.exports = function(app, passport) {
         '..',
         '..',
         'client-web',
-        'public',
+        'build',
         'index.html'
       )
     );
