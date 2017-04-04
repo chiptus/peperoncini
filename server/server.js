@@ -7,7 +7,7 @@ var passport = require('passport');
 var session = require('express-session');
 const cors = require('cors');
 
-require('dotenv').load();
+require('dotenv').config({ silent: true });
 
 const { jsonParser } = require('./app/middelware/json');
 
@@ -21,12 +21,13 @@ app.use(cors());
 
 app.use(jsonParser);
 
-
-app.use(session({
-	secret: 'secretClementine',
-	resave: false,
-	saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: 'secretClementine',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // app.use(passport.initialize());
 // app.use(passport.session());
@@ -34,6 +35,6 @@ app.use(session({
 routes(app, passport);
 
 var port = process.env.PORT || 8080;
-app.listen(port, function () {
-	console.log('Node.js listening on port ' + port + '...');
+app.listen(port, function() {
+  console.log('Node.js listening on port ' + port + '...');
 });
