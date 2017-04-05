@@ -13,19 +13,6 @@ const menuCtrl = require('../controllers/menu.controller');
 const userCtrl = require('../controllers/user');
 
 module.exports = function(app, passport) {
-  const pathToClientSide = path.resolve(
-    __dirname,
-    '..',
-    '..',
-    '..',
-    '..',
-    'client-web',
-    'build',
-    'index.html'
-  );
-
-  app.use('/', express.static(pathToClientSide));
-
   app.post('/auth/facebook', ({ body: { socialToken } }, res, next) => {
     validateWithFacebook(socialToken)
       .then(profile => ({
@@ -56,8 +43,4 @@ module.exports = function(app, passport) {
   crudRoute(app, 'ingredient', ingredientCtrl);
 
   crudRoute(app, 'menu', menuCtrl);
-
-  app.get('*', (req, res) => {
-    res.sendFile(pathToClientSide);
-  });
 };

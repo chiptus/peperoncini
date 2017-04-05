@@ -22,8 +22,14 @@ app.use(jsonParser);
 
 // app.use(passport.initialize());
 // app.use(passport.session());
+const pathToClientSide = path.resolve(__dirname, 'client-web', 'index.html');
+
+app.use('/', express.static(pathToClientSide));
 
 routes(app, passport);
+app.get('*', (req, res) => {
+  res.sendFile(pathToClientSide);
+});
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
