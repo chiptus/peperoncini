@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 
 // import IngredientListItem from './ingredient-list-item';
+import ComponentsList from './components-list';
 
-const ItemContent = ({ description, courses = [] }) => {
+const ItemContent = ({ description, courses, ingredients }) => {
   return (
     <div>
       <div>
@@ -12,32 +13,29 @@ const ItemContent = ({ description, courses = [] }) => {
         </span>
         <span> ש"ח </span>
       </div>
-
       <div>
         {description}
       </div>
-      <h2> רשימת מנות</h2>
-      <div>
-        {courses.map(({ _id, name, value }) => (
-          <div key={_id}>{`${value} ${name}`}</div>
-        ))}
-      </div>
-
+      <ComponentsList title="רשימת מנות" comps={courses} />
+      <ComponentsList title="רשימת רכיבים" comps={ingredients} />
     </div>
   );
 };
 
+const CompsPropType = PropTypes.arrayOf(
+  PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+  })
+);
+
 ItemContent.PropTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  ingredients: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired,
-      price: PropTypes.number.isRequired,
-    })
-  ),
+  ingredients: CompsPropType,
+  courses: CompsPropType,
 };
 
 export default ItemContent;
