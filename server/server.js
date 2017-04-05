@@ -23,7 +23,13 @@ app.use(jsonParser);
 
 // app.use(passport.initialize());
 // app.use(passport.session());
-const pathToClientSide = path.resolve(__dirname, 'client-web', 'index.html');
+const pathToClientSide = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'client-web',
+  'index.html'
+);
 
 app.use('/', express.static(pathToClientSide));
 
