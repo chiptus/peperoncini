@@ -26,16 +26,16 @@ app.use(jsonParser);
 const pathToClientSide = path.resolve(
   __dirname,
   '..',
-  '..',
   'client-web',
-  'index.html'
+  'build'
+  // 'index.html'
 );
 
 app.use('/', express.static(pathToClientSide));
 
 routes(app, passport);
 app.get('*', (req, res) => {
-  res.sendFile(pathToClientSide);
+  res.sendFile(path.resolve(pathToClientSide, 'index.html'));
 });
 
 var port = process.env.PORT || 8080;
