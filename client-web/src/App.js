@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
 // import PrivateRoute from './auth/components/private-route';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { Header, Menu } from './components/layout';
 
@@ -23,27 +23,30 @@ class App extends Component {
 
     this.state = {
       openDrawer: false,
-    }
+    };
   }
 
   toggleDrawer = () => {
     this.setState({ openDrawer: !this.state.openDrawer });
-  }
+  };
 
   login = () => {
     auth.login();
-  }
+  };
 
   test = () => {
     auth.test();
-  }
+  };
 
   render() {
     return (
-      <BrowserRouter >
+      <BrowserRouter>
         <MuiThemeProvider muiTheme={theme}>
           <div>
-            <Menu openDrawer={this.state.openDrawer} toggleDrawer={this.toggleDrawer} />
+            <Menu
+              openDrawer={this.state.openDrawer}
+              toggleDrawer={this.toggleDrawer}
+            />
             <div className="container">
               <Header toggleDrawer={this.toggleDrawer} />
               <div className="content">
@@ -51,7 +54,7 @@ class App extends Component {
                 <Route path="/events" render={() => <div>events</div>} />
                 <Route path="/ingredients" component={IngredientsContainer} />
                 <Route path="/courses" component={CoursesContainer} />
-
+                <Route exact path="/" render={() => <Redirect to="/menus" />} />
               </div>
             </div>
           </div>
