@@ -4,7 +4,6 @@ var express = require('express');
 var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var session = require('express-session');
 const cors = require('cors');
 
 require('dotenv').config({ silent: true });
@@ -20,14 +19,6 @@ mongoose.Promise = global.Promise;
 app.use(cors());
 
 app.use(jsonParser);
-
-app.use(
-  session({
-    secret: 'secretClementine',
-    resave: false,
-    saveUninitialized: true,
-  })
-);
 
 // app.use(passport.initialize());
 // app.use(passport.session());
