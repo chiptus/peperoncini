@@ -7,8 +7,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { Header, Menu } from './components/layout';
 
-import auth from './auth/auth';
-
 import IngredientsContainer from './containers/ingredients';
 import CoursesContainer from './containers/courses';
 import MenusContainer from './containers/menus';
@@ -28,14 +26,6 @@ class App extends Component {
 
   toggleDrawer = () => {
     this.setState({ openDrawer: !this.state.openDrawer });
-  };
-
-  login = () => {
-    auth.login();
-  };
-
-  test = () => {
-    auth.test();
   };
 
   render() {
