@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 const cors = require('cors');
 
-require('dotenv').config({ silent: true });
+require('dotenv').config();
 
 const { jsonParser } = require('./app/middelware/json');
 
