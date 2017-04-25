@@ -18,7 +18,6 @@ export default function createFetchItemsActionCreators(serverUrl, actions, items
   /* FETCH ITEMS */
   function shouldFetchItems(state) {
     const itemsWrapper = state[itemsName + 's']; //TODO might be risky. maybe should change api name to plural? or otherwise state.entityname to singular
-    console.log(itemsWrapper)
     if (!itemsWrapper || !itemsWrapper.items) {
       return true;
     }
