@@ -1,7 +1,7 @@
 import request from 'superagent';
 
 export default function createFetchItemsActionCreators(serverUrl, actions, itemsName, options = {}) {
- 
+
   return {
     fetchItemsIfNeeded
   }
@@ -17,7 +17,8 @@ export default function createFetchItemsActionCreators(serverUrl, actions, items
 
   /* FETCH ITEMS */
   function shouldFetchItems(state) {
-    const itemsWrapper = state[itemsName];
+    const itemsWrapper = state[itemsName + 's']; //TODO might be risky. maybe should change api name to plural? or otherwise state.entityname to singular
+    console.log(itemsWrapper)
     if (!itemsWrapper || !itemsWrapper.items) {
       return true;
     }
@@ -45,7 +46,7 @@ export default function createFetchItemsActionCreators(serverUrl, actions, items
   }
 
   function receiveItems(items) {
-    if (options.receiveItems){
+    if (options.receiveItems) {
       return options.receiveItems(receiveItemsOriginal, items)
     }
     return receiveItemsOriginal(items)
