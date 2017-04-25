@@ -1,12 +1,12 @@
-import request from 'superagent';
+import axios from 'axios';
 
 export default function createDeleteItemActionCreators(serverUrl, actions, itemsName, options = {}) {
-  return {deleteItem}
+  return { deleteItem }
 
   function deleteItem(itemId) {
     return dispatch => {
       dispatch(requestDeleteItem(itemId))
-      return request
+      return axios
         .delete(`${serverUrl}/api/${itemsName}/${itemId}`)
         .then(
         request => dispatch(deleteItemSuccessWrapper(itemId)),

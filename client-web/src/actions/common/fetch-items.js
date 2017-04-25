@@ -1,4 +1,4 @@
-import request from 'superagent';
+import axios from 'axios';
 
 export default function createFetchItemsActionCreators(serverUrl, actions, itemsName, options = {}) {
 
@@ -31,9 +31,9 @@ export default function createFetchItemsActionCreators(serverUrl, actions, items
   function fetchItems() {
     return dispatch => {
       dispatch(requestItems());
-      return request.get(`${serverUrl}/api/${itemsName}`)
+      return axios.get(`${serverUrl}/api/${itemsName}`)
         .then(
-        response => dispatch(receiveItems(response.body)),
+        response => dispatch(receiveItems(response.data)),
         error => dispatch(receiveItemsError(error))
         );
     }

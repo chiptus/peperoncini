@@ -1,4 +1,4 @@
-import request from 'superagent';
+import axios from 'axios';
 
 export default function createAddItemActionCreators(serverUrl, actions, itemsName) {
   return {
@@ -9,10 +9,10 @@ export default function createAddItemActionCreators(serverUrl, actions, itemsNam
   function addItem(item) {
     return dispatch => {
       dispatch(requestSaveItem(item));
-      return request.post(`${serverUrl}/api/${itemsName}`)
+      return axios.post(`${serverUrl}/api/${itemsName}`)
         .send(item)
         .then(
-        response => dispatch(addItemSuccess(response.body)),
+        response => dispatch(addItemSuccess(response.data)),
         error => dispatch(addItemFail(error)),
       )
     }

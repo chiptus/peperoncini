@@ -1,15 +1,15 @@
-import request from 'superagent';
+import axios from 'axios';
 
 export default function createUpdateItemActionCreators(serverUrl, actions, itemsName) {
-  return {updateItem};
+  return { updateItem };
 
   function updateItem(item) {
     return dispatch => {
       dispatch(requestUpdateItem(item));
-      return request.post(`${serverUrl}/api/${itemsName}/${item._id}`)
+      return axios.post(`${serverUrl}/api/${itemsName}/${item._id}`)
         .send(item)
         .then(
-        response => dispatch(updateItemSuccess(response.body)),
+        response => dispatch(updateItemSuccess(response.data)),
         error => dispatch(updateItemFail(error)),
       )
     }

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Switch, Route } from 'react-router-dom';
-
+import PrivateRoute from '../../auth/components/private-route'
 // import { connect } from 'react-redux';
 
 // import {fetchCoursesIfNeeded} from '../actions/courses'
@@ -21,8 +21,8 @@ class ItemsContainer extends Component {
           !isFetching ?
             (
               <Switch>
-                <Route path={`/${itemsName}/add`} render={({ push }) => <AddItemPage push={push} />} />
-                <Route path={`/${itemsName}/edit/:id`} render={({ push, match: { params: { id } } }) => <AddItemPage {...{ push, id }} />} />
+                <PrivateRoute path={`/${itemsName}/add`} render={({ push }) => <AddItemPage push={push} />} />
+                <PrivateRoute path={`/${itemsName}/edit/:id`} render={({ push, match: { params: { id } } }) => <AddItemPage {...{ push, id }} />} />
                 <Route path={`/${itemsName}/`} render={({ push }) => <ItemsPage {...{ push }} />} />
               </Switch>
             )
