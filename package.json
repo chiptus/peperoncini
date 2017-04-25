@@ -9,7 +9,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently 'cd ./client-web && yarn start' 'cd ./server && yarn run dev'",
+    "dev": "sudo service mongod start && concurrently 'cd ./client-web && yarn start' 'cd ./server && yarn run dev'",
     "start": "concurrently 'cd ./client-web && yarn run build' 'cd ./server && yarn start'",
     "postinstall": "concurrently 'cd server && yarn' 'cd client-web && yarn'"
   },
