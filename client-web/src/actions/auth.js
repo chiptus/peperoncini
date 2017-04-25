@@ -14,8 +14,8 @@ export function login() {
     dispatch(loginRequest());
     return loginAuth().then(
       data => {
-        dispatch(authSetToken(data.token));
         dispatch(authSetUser(data.user));
+        dispatch(authSetToken(data.token));
       },
       reason => {
         dispatch(loginFailed(reason.error.message));

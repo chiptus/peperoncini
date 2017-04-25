@@ -2,6 +2,7 @@ import { AUTH } from '../constants/actions';
 const { AUTH_SET_TOKEN, AUTH_DISCARD_TOKEN, AUTH_SET_USER } = AUTH;
 
 export default function authReducer(state = { userId: '', token: '' }, action) {
+  console.log('auth:', action);
   switch (action.type) {
     // saves the token into the state
     case AUTH_SET_TOKEN:

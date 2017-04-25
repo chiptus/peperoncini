@@ -23,14 +23,17 @@ module.exports = function(app, passport) {
       .then(user => {
         return userCtrl
           .saveUser(user.name, user.socialId, 'facebook', socialToken)
-          .then(() => user);
+          .then(({ _id }) => ({
+            user: Object.assign({ _id }, user),
+            token: user.jwt,
+          }));
       })
-      .then(({ jwt, name }) => {
-        res.json({ jwt, name });
+      .then(({ user, token }) => {
+        res.json({ token, user });
       })
       .catch(err => {
         res.sendStatus(403);
-        next(new Error(err));
+        return next(err);
       });
   });
 

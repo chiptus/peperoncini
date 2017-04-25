@@ -1,6 +1,5 @@
 auth
-implement auth on server side
-
+redirect to root (or last page) on login
 
 style
 format numbers
