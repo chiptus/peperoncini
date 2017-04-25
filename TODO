@@ -1,4 +1,6 @@
-remove redundant calls for db - maybe I should have only one?
 auth
+implement auth on server side
+
+
 style
 format numbers
