@@ -18,27 +18,7 @@ export default function createActionCreators(itemsName, actions, options = {}) {
     return item._id ? updateItem(item) : addItem(item);
   }
 
-  /*
-    function fetchItem(itemId) {
-      return dispatch => {
-        dispatch(requestFetchItem(itemId));
-        return request
-          .get(`${SERVER_URL}/api/${itemsName}/${itemId}`)
-          .then(
-          response => {
-            dispatch(fetchItemSuccess(response.body));
-            return response.body;
-          },
-          error => {
-            dispatch(fetchItemFailed(error))
-            throw error;
-          }
-          );
-  
-      }
-  
-    }
-  */
+
   return {
     addOrUpdateItem,
     fetchItemsIfNeeded,
