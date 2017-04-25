@@ -1,12 +1,14 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
+import { AppBar, FlatButton } from 'material-ui';
 
 const Header = ({ toggleDrawer, login }) => {
   return (
     <AppBar
       title="מחשבון הכמויות של Peperoncini"
-      onLeftIconButtonTouchTap={toggleDrawer}>
-      {/*<button onClick={login}>Login</button>*/}
+      onLeftIconButtonTouchTap={toggleDrawer}
+      iconElementRight={
+        <FlatButton backgroundColor="#7a7ad3" onTouchTap={login}>התחבר באמצעות Facebook</FlatButton>
+      }>
     </AppBar>
   );
 };

@@ -2,10 +2,10 @@ import hello from 'hellojs';
 
 import axios from 'axios';
 
-import { FB_APPID, SERVER_URL } from '../config';
+import { FACEBOOK_CLIENT_ID, SERVER_URL } from '../config';
 
 hello.init({
-  facebook: FB_APPID,
+  facebook: FACEBOOK_CLIENT_ID,
 });
 
 export default () => {

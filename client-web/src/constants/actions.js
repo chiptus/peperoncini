@@ -8,11 +8,9 @@ export const MENUS = createActionsConstants('menus');
 
 export const EVENTS = createActionsConstants('events');
 
-
 export const AUTH = {
-  LOGIN_REQUESTED: 'LOGIN_REQUESTED',
-  LOGIN_AUTHORIZED: 'LOGIN_AUTHORIZED',
-  LOGOUT_REQUESTED: 'LOGOUT_REQUESTED',
-  LOGOUT: 'LOGOUT',
-}
-
+  AUTH_SET_TOKEN: 'AUTH_SET_TOKEN',
+  AUTH_DISCARD_TOKEN: 'AUTH_DISCARD_TOKEN',
+  AUTH_SET_USER: 'AUTH_SET_USER',
+  REQUEST_LOGIN: 'REQUEST_LOGIN',
+};

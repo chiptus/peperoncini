@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
-// import PrivateRoute from './auth/components/private-route';
-
+import { connect } from 'react-redux';
+import { authDiscardToken, login } from './actions/auth';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { Header, Menu } from './components/layout';
@@ -38,7 +38,13 @@ class App extends Component {
               toggleDrawer={this.toggleDrawer}
             />
             <div className="container">
-              <Header toggleDrawer={this.toggleDrawer} />
+              <Header
+                toggleDrawer={this.toggleDrawer}
+                login={this.props.login}
+                logout={this.props.logout}
+                isLoggedIn={this.props.isLoggedIn}
+                username={this.props.username}
+              />
               <div className="content">
                 <Route path="/menus" component={MenusContainer} />
                 <Route path="/events" render={() => <div>events</div>} />
@@ -55,4 +61,15 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  isLoggedIn: !!state.auth.token,
+  username: !!state.auth.token && state.entities.users[state.auth.userId].name,
+});
+
+const mapDispatchToProps = dispatch => ({
+  login: () => dispatch(login()),
+  logout: () => dispatch(authDiscardToken()),
+  // checkLogin: () => dispatch(checkLogin()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

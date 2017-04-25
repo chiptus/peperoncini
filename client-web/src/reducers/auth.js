@@ -1,18 +1,24 @@
 import { AUTH } from '../constants/actions';
+const { AUTH_SET_TOKEN, AUTH_DISCARD_TOKEN, AUTH_SET_USER } = AUTH;
 
-const defaultState = {
-
-}
-
-export default (state = defaultState, action) => {
+export default function authReducer(state = { userId: '', token: '' }, action) {
   switch (action.type) {
-    case AUTH.LOGIN_AUTHORIZED:
+    // saves the token into the state
+    case AUTH_SET_TOKEN:
       return {
         ...state,
-        user: action.payload
+        token: action.payload,
       };
-    case AUTH.LOGOUT:
+    // discards the current token (logout)
+    case AUTH_DISCARD_TOKEN:
       return {};
+    // saves the current user
+    case AUTH_SET_USER:
+      return {
+        ...state,
+        userId: action.payload._id,
+      };
+    // as always, on default do nothing
     default:
       return state;
   }
