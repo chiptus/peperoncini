@@ -44,6 +44,7 @@ class App extends Component {
                 <Route path="/events" render={() => <div>events</div>} />
                 <Route path="/ingredients" component={IngredientsContainer} />
                 <Route path="/courses" component={CoursesContainer} />
+                <Route path="/login" render={() => <div>Please Login</div>} />
                 <Route exact path="/" render={() => <Redirect to="/menus" />} />
               </div>
             </div>
