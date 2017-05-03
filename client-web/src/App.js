@@ -10,7 +10,7 @@ import { Header, Menu } from './components/layout';
 import IngredientsContainer from './containers/ingredients';
 import CoursesContainer from './containers/courses';
 import MenusContainer from './containers/menus';
-
+import LoginPage from './containers/login-page';
 import theme from './theme';
 
 import './App.css';
@@ -50,7 +50,7 @@ class App extends Component {
                 <Route path="/events" render={() => <div>events</div>} />
                 <Route path="/ingredients" component={IngredientsContainer} />
                 <Route path="/courses" component={CoursesContainer} />
-                <Route path="/login" render={() => <div>Please Login</div>} />
+                <Route path="/login" component={LoginPage} />
                 <Route exact path="/" render={() => <Redirect to="/menus" />} />
               </div>
             </div>
