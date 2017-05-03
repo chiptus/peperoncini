@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { authDiscardToken, login } from './actions/auth';
+import queryString from 'query-string';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { Header, Menu } from './components/layout';
@@ -50,7 +52,15 @@ class App extends Component {
                 <Route path="/events" render={() => <div>events</div>} />
                 <Route path="/ingredients" component={IngredientsContainer} />
                 <Route path="/courses" component={CoursesContainer} />
-                <Route path="/login" component={LoginPage} />
+                <Route
+                  path="/login"
+                  render={({ location: { search }, push }) => {
+                    const query = queryString.parse(search);
+                    const last = query.last || '/menus';
+                    const goBack = () => push(last);
+                    return <LoginPage goBack={goBack} />;
+                  }}
+                />
                 <Route exact path="/" render={() => <Redirect to="/menus" />} />
               </div>
             </div>
