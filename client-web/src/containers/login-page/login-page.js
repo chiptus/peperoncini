@@ -1,13 +1,26 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { FlatButton } from 'material-ui';
 
-const componentName = props => {
+import { login } from '../../actions/auth';
+
+const LoginPage = ({ login }) => {
   return (
     <div>
-      Please Login
+      <FlatButton label="התחבר עם Facebook" onTouchTap={login} />
     </div>
   );
 };
 
-componentName.propTypes = {};
+LoginPage.propTypes = {
+  login: PropTypes.func.isRequired,
+};
 
-export default componentName;
+const mapStateToProps = (state, ownProps) => ({});
+
+const mapDispatchToProps = (dispatch, { goBack }) => ({
+  login: () => dispatch(login()).then(() => goBack()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
