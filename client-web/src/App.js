@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { authDiscardToken, login } from './actions/auth';
-import queryString from 'query-string';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -54,10 +53,9 @@ class App extends Component {
                 <Route path="/courses" component={CoursesContainer} />
                 <Route
                   path="/login"
-                  render={({ location: { search }, push }) => {
-                    const query = queryString.parse(search);
-                    const last = query.last || '/menus';
-                    const goBack = () => push(last);
+                  render={({ location: { search, state }, push }) => {
+                    const from = state.from || { pathname: '/menus' };
+                    const goBack = () => push(from);
                     return <LoginPage goBack={goBack} />;
                   }}
                 />
