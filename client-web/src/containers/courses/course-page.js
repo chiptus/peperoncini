@@ -1,17 +1,17 @@
-import React, { Component }/*, { PropTypes } */ from 'react';
+import React, { Component /*, { PropTypes } */ } from 'react';
 import { connect } from 'react-redux';
 
 import { deleteItem } from '../../actions/courses';
 import CourseList from '../../components/courses/courses-list/courses-list';
 
 class CoursesPage extends Component {
-  editCourse = (id) => {
+  editCourse = id => {
     this.props.push(`/courses/edit/${id}`);
-  }
+  };
 
-  deleteCourse = (id) => {
+  deleteCourse = id => {
     this.props.deleteCourse(id);
-  }
+  };
 
   render() {
     return (
@@ -28,19 +28,17 @@ class CoursesPage extends Component {
 }
 
 CoursesPage.propTypes = {
-  courses: React.PropTypes.array.isRequired
+  courses: React.PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => {
-
-  return ({
+const mapStateToProps = state => {
+  return {
     courses: state.courses.items
       .map(id => state.entities.courses[id])
       .map(item => {
         return {
           ...item,
           ingredients: item.ingredients.map(ing => {
-            // console.log(ing._id, state.entities.ingredients[ing._id])
             if (!state.entities.ingredients[ing._id]) {
               return ing;
             }
@@ -50,17 +48,17 @@ const mapStateToProps = (state) => {
               unit: state.entities.ingredients[ing._id].unit,
               price: state.entities.ingredients[ing._id].price,
               value: ing.value,
-            }
-          })
-        }
+            };
+          }),
+        };
       }),
 
     //  ingredients: state.ingredients.items.map(id => state.entities.ingredients[id])
-  });
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  deleteCourse: (courseId) => dispatch(deleteItem(courseId)),
-})
+const mapDispatchToProps = dispatch => ({
+  deleteCourse: courseId => dispatch(deleteItem(courseId)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);

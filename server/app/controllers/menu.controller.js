@@ -41,7 +41,6 @@ module.exports = {
     if (!item) {
       return res.status(400).send({ error: 'no menu object provided' });
     }
-    // console.log(id, item);
     Menu.findByIdAndUpdate(id, item, { new: true }).exec((err, result) => {
       if (err) throw err;
       res.json(result);
