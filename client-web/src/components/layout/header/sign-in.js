@@ -4,9 +4,11 @@ import { FlatButton } from 'material-ui';
 
 const SignIn = ({ login }) => {
   return (
-    <FlatButton backgroundColor="#7a7ad3" onTouchTap={login}>
-      התחבר באמצעות Facebook
-    </FlatButton>
+    <FlatButton
+      backgroundColor="#7a7ad3"
+      onTouchTap={login}
+      label="התחבר באמצעות Facebook"
+    />
   );
 };
 
