@@ -11,7 +11,6 @@
     "hellojs": "^1.14.0",
     "material-ui": "^0.17.0",
     "prop-types": "^15.5.8",
-    "query-string": "^4.3.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
