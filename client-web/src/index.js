@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { load, save } from 'redux-localstorage-simple';
 
 import thunkMiddleware from 'redux-thunk';
 
@@ -17,13 +17,16 @@ injectTapEventPlugin();
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
+import App from './App';
 import reducer from './reducers';
 
 import './index.css';
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware));
-
-
+const store = createStore(
+  reducer,
+  load({ states: ['auth', 'entities'] }),
+  applyMiddleware(thunkMiddleware, save({ states: ['auth', 'entities'] }))
+);
 
 ReactDOM.render(
   <Provider store={store}><App /></Provider>,
