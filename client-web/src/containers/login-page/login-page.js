@@ -17,7 +17,12 @@ LoginPage.propTypes = {
   login: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => ({});
+const mapStateToProps = (state, { goBack }) => {
+  if (state.auth.token) {
+    goBack();
+  }
+  return {};
+};
 
 const mapDispatchToProps = (dispatch, { goBack }) => ({
   login: () => dispatch(login()).then(() => goBack()),
