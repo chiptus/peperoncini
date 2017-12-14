@@ -10,13 +10,13 @@
   "scripts": {
     "install:server": "cd ./server && yarn",
     "install:client": "cd ./client-web && yarn",
+    "postinstall": "run-s install:*",
     "dev:client": "cd ./client-web && yarn start",
     "dev:server": "cd ./server && yarn dev",
     "dev": "run-p dev:*",
     "start:client": "cd ./client-web && yarn start",
     "start:server": "cd ./server && yarn start",
     "start": "run-p start:*",
-    "postinstall": "run-p install:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
