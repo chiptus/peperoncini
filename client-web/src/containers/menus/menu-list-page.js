@@ -85,22 +85,19 @@ function getMenuIngredientsObject(
   menu,
   { entities: { courses, ingredients } }
 ) {
-  return menu.courses.reduce(
-    (prev, { _id: courseId, value: courseValue }) => {
-      let course = courses[courseId];
-      if (!course) {
-        return prev;
-      }
-
-      course.ingredients.forEach(({ _id, value }) => {
-        if (!prev[_id]) {
-          prev[_id] = Object.assign({}, ingredients[_id]);
-          prev[_id].value = 0;
-        }
-        prev[_id].value += value * courseValue;
-      });
+  return menu.courses.reduce((prev, { _id: courseId, value: courseValue }) => {
+    let course = courses[courseId];
+    if (!course) {
       return prev;
-    },
-    {}
-  );
+    }
+
+    course.ingredients.forEach(({ _id, value }) => {
+      if (!prev[_id]) {
+        prev[_id] = Object.assign({}, ingredients[_id]);
+        prev[_id].value = 0;
+      }
+      prev[_id].value += value * courseValue;
+    });
+    return prev;
+  }, {});
 }

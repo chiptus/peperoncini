@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { FlatButton, Dialog } from 'material-ui';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 import Item from './item';
 
@@ -11,16 +11,16 @@ class ItemsList extends Component {
     this.state = {
       openDialog: false,
       idToDelete: '',
-    }
+    };
   }
 
   handleClose = () => {
     this.setState({ openDialog: false });
-  }
+  };
 
-  handleOpen = (id) => {
+  handleOpen = id => {
     this.setState({ openDialog: true, idToDelete: id });
-  }
+  };
 
   handleConfirm = () => {
     this.props.deleteItem(this.state.idToDelete);
@@ -28,26 +28,27 @@ class ItemsList extends Component {
       openDialog: false,
       idToDelete: '',
     });
-  }
+  };
 
   render() {
     const { items, editItem, newItemLink, children } = this.props;
 
     return (
       <div>
-        <NavLink to={newItemLink}><FlatButton>הוסף פריט</FlatButton></NavLink>
+        <NavLink to={newItemLink}>
+          <FlatButton>הוסף פריט</FlatButton>
+        </NavLink>
         <div>
-          {
-            items.map(({name, _id, ...item}) => (
-              <Item
-                key={_id}
-                name={name}
-                onEdit={() => editItem(_id)}
-                onDelete={() => this.handleOpen(_id)}>
-                {children ? children(item) : null}
-              </Item>
-            ))
-          }
+          {items.map(({ name, _id, ...item }) => (
+            <Item
+              key={_id}
+              name={name}
+              onEdit={() => editItem(_id)}
+              onDelete={() => this.handleOpen(_id)}
+            >
+              {children ? children(item) : null}
+            </Item>
+          ))}
         </div>
 
         <Dialog
@@ -71,8 +72,6 @@ class ItemsList extends Component {
     );
   }
 }
-
-
 
 ItemsList.propTypes = {
   items: PropTypes.array.isRequired,

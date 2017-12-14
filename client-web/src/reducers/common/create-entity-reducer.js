@@ -1,5 +1,3 @@
-
-
 export default function createEntityReducer(actions) {
   return function ingEntitiesReducer(state = {}, { type, payload, error }) {
     switch (type) {
@@ -24,9 +22,9 @@ export default function createEntityReducer(actions) {
             return {
               ...items,
               [current._id]: current,
-            }
-          }, {})
-        }
+            };
+          }, {}),
+        };
 
       case actions.FETCH_ITEM:
       case actions.REQUEST_DELETE:
@@ -43,5 +41,5 @@ export default function createEntityReducer(actions) {
       default:
         return state;
     }
-  }
+  };
 }

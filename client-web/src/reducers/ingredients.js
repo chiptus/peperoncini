@@ -20,8 +20,6 @@ export default createItemIdReducer(INGREDIENTS);
 //   }
 // }
 
-
-
 // function isFetchingReducer(isFetching = false, {type, payload}) {
 //   switch (type) {
 //     case INGREDIENTS.FETCH_LIST:
@@ -32,7 +30,6 @@ export default createItemIdReducer(INGREDIENTS);
 //     case INGREDIENTS.REQUEST_DELETE:
 //       return true;
 
-    
 //     case INGREDIENTS.RECEIVED_ITEM:
 //     case INGREDIENTS.ADD:
 //     case INGREDIENTS.DELETE:
@@ -50,8 +47,6 @@ export default createItemIdReducer(INGREDIENTS);
 //   }
 // }
 
-
-
 // function itemsReducer(items = [], {type, payload, error}) {
 //   switch (type) {
 //     case INGREDIENTS.ADD:
@@ -62,7 +57,7 @@ export default createItemIdReducer(INGREDIENTS);
 //       return payload.map(({id}) => id);
 //     case INGREDIENTS.RECEIVED_ITEM:
 //       return [payload.id];
-    
+
 //      case INGREDIENTS.FETCH_ITEM:
 //     case INGREDIENTS.REQUEST_DELETE:
 //      case INGREDIENTS.REQUEST_DELETE_FAIL:

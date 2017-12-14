@@ -7,14 +7,21 @@ const PrivateRoute = ({ component, render, isLoggedIn, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      (isLoggedIn
-        ? component ? React.createElement(component, props) : render(props)
-        : <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: props.location },
-            }}
-          />)}
+      isLoggedIn ? (
+        component ? (
+          React.createElement(component, props)
+        ) : (
+          render(props)
+        )
+      ) : (
+        <Redirect
+          to={{
+            pathname: '/login',
+            state: { from: props.location },
+          }}
+        />
+      )
+    }
   />
 );
 

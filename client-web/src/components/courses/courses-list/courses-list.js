@@ -9,7 +9,8 @@ const CoursesList = ({ courses, deleteCourse, editCourse }) => {
       items={courses}
       editItem={editCourse}
       deleteItem={deleteCourse}
-      newItemLink="/courses/add">
+      newItemLink="/courses/add"
+    >
       {item => <ItemContent {...item} />}
     </ItemsList>
   );

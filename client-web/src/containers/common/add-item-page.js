@@ -11,8 +11,7 @@ const AddItemPage = (itemsName, addOrUpdateItem, fetchItemsIfNeeded) => {
         nameError: '',
 
         ...this.props.item,
-
-      }
+      };
     }
 
     componentDidUpdate() {
@@ -20,27 +19,26 @@ const AddItemPage = (itemsName, addOrUpdateItem, fetchItemsIfNeeded) => {
         return;
       }
       this.setState({
-        ...this.props.item
-      })
+        ...this.props.item,
+      });
     }
 
     returnToList = () => {
-      this.props.push(`/${itemsName}/`)
-    }
+      this.props.push(`/${itemsName}/`);
+    };
 
     submit = () => {
-      const { name, } = this.state
+      const { name } = this.state;
       const item = {
         id: this.props.item._id,
         name,
-      }
+      };
       if (!item.name) {
         this.setState({ nameError: 'שדה זה הוא חובה' });
         return;
       }
-      this.props.saveItem(item)
-        .then(t => this.props.returnToList());
-    }
+      this.props.saveItem(item).then(t => this.props.returnToList());
+    };
 
     render() {
       const { name } = this.state;
@@ -50,15 +48,19 @@ const AddItemPage = (itemsName, addOrUpdateItem, fetchItemsIfNeeded) => {
           <form>
             <div>
               <TextField
-                value={name || ""}
-                onChange={({ target: { value } }) => this.setState({ name: value })}
-                floatingLabelText={"שם"}
+                value={name || ''}
+                onChange={({ target: { value } }) =>
+                  this.setState({ name: value })
+                }
+                floatingLabelText={'שם'}
                 errorText={this.state.nameError}
               />
             </div>
             {children}
             <FlatButton onClick={this.submit}>שמור</FlatButton>
-            <FlatButton onClick={() => this.props.returnToList()}>ביטול</FlatButton>
+            <FlatButton onClick={() => this.props.returnToList()}>
+              ביטול
+            </FlatButton>
           </form>
         </div>
       );
@@ -66,14 +68,14 @@ const AddItemPage = (itemsName, addOrUpdateItem, fetchItemsIfNeeded) => {
   }
 
   const mapStateToProps = (state, ownProps) => {
-    
-    let item = (ownProps.id) && state.entities[itemsName][ownProps.id];
-    item = Object.assign({}, { name: '', unit: '', price: '' }, item)
+    let item = ownProps.id && state.entities[itemsName][ownProps.id];
+    item = Object.assign({}, { name: '', unit: '', price: '' }, item);
     return { item };
   };
 
   const mapDispatchToProps = (dispatch, ownProps) => ({
-    saveItem: (item) => { //async
+    saveItem: item => {
+      //async
       return dispatch(addOrUpdateItem(item));
     },
     returnToList: () => {
@@ -81,10 +83,10 @@ const AddItemPage = (itemsName, addOrUpdateItem, fetchItemsIfNeeded) => {
     },
     fetchItems: () => {
       return dispatch(fetchItemsIfNeeded());
-    }
+    },
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(AddItemPage);
-}
+};
 
 export default AddItemPage;

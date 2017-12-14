@@ -8,20 +8,15 @@ const CourseItemContent = ({ description, ingredients }) => {
       <div>
         <span>מחיר למנה: </span>
         <span>
-          {
-            ingredients.reduce((sum, cur) => sum + (cur.price * cur.value), 0)
-          }
+          {ingredients.reduce((sum, cur) => sum + cur.price * cur.value, 0)}
         </span>
         <span> ש"ח </span>
       </div>
 
-      <div>
-        {description}
-      </div>
+      <div>{description}</div>
       <div>
         {ingredients.map(ing => <IngredientListItem {...ing} key={ing._id} />)}
       </div>
-
     </div>
   );
 };
@@ -29,12 +24,14 @@ const CourseItemContent = ({ description, ingredients }) => {
 CourseItemContent.PropTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  ingredients: PropTypes.arrayOf(PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.number,
-    unit: PropTypes.string,
-  }))
-}
+  ingredients: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      value: PropTypes.number,
+      unit: PropTypes.string,
+    })
+  ),
+};
 
 export default CourseItemContent;

@@ -2,16 +2,14 @@ import React, { PropTypes } from 'react';
 
 import { SelectField, MenuItem, TextField, FlatButton } from 'material-ui';
 
-const SubItemInput = (
-  {
-    subItem,
-    onChangeSubItemValue,
-    subItems,
-    onDelete,
-    onChangeSubItem,
-    subItemName,
-  }
-) => {
+const SubItemInput = ({
+  subItem,
+  onChangeSubItemValue,
+  subItems,
+  onDelete,
+  onChangeSubItem,
+  subItemName,
+}) => {
   return (
     <div>
       <SelectField
@@ -19,7 +17,9 @@ const SubItemInput = (
         value={subItem._id}
         floatingLabelText={subItemName}
         onChange={(e, key, selectedId) =>
-          onChangeSubItem(subItem._id, selectedId)}>
+          onChangeSubItem(subItem._id, selectedId)
+        }
+      >
         {subItems.map(ing => (
           <MenuItem value={ing._id} key={ing._id} primaryText={ing.name} />
         ))}

@@ -1,20 +1,17 @@
-export default function (hello) {
-
+export default function(hello) {
   hello.init({
-
     github: {
-
       name: 'GitHub',
 
       oauth: {
         version: 2,
         auth: 'https://github.com/login/oauth/authorize',
         grant: 'https://github.com/login/oauth/access_token',
-        response_type: 'code'
+        response_type: 'code',
       },
 
       scope: {
-        email: 'user:email'
+        email: 'user:email',
       },
 
       base: 'https://api.github.com/',
@@ -24,20 +21,18 @@ export default function (hello) {
         'me/friends': 'user/following?per_page=@{limit|100}',
         'me/following': 'user/following?per_page=@{limit|100}',
         'me/followers': 'user/followers?per_page=@{limit|100}',
-        'me/like': 'user/starred?per_page=@{limit|100}'
+        'me/like': 'user/starred?per_page=@{limit|100}',
       },
 
       wrap: {
-        me: function (o, headers) {
-
+        me: function(o, headers) {
           formatError(o, headers);
           formatUser(o);
 
           return o;
         },
 
-        'default': function (o, headers, req) {
-
+        default: function(o, headers, req) {
           formatError(o, headers);
 
           if (Array.isArray(o)) {
@@ -50,32 +45,33 @@ export default function (hello) {
           }
 
           return o;
-        }
+        },
       },
 
-      xhr: function (p) {
-
+      xhr: function(p) {
         if (p.method !== 'get' && p.data) {
-
           // Serialize payload as JSON
           p.headers = p.headers || {};
           p.headers['Content-Type'] = 'application/json';
-          if (typeof (p.data) === 'object') {
+          if (typeof p.data === 'object') {
             p.data = JSON.stringify(p.data);
           }
         }
 
         return true;
-      }
-    }
+      },
+    },
   });
 
   function formatError(o, headers) {
-    var code = headers ? headers.statusCode : (o && 'meta' in o && 'status' in o.meta && o.meta.status);
-    if ((code === 401 || code === 403)) {
+    var code = headers
+      ? headers.statusCode
+      : o && 'meta' in o && 'status' in o.meta && o.meta.status;
+    if (code === 401 || code === 403) {
       o.error = {
         code: 'access_denied',
-        message: o.message || (o.data ? o.data.message : 'Could not get response')
+        message:
+          o.message || (o.data ? o.data.message : 'Could not get response'),
       };
       delete o.message;
     }
@@ -93,10 +89,9 @@ export default function (hello) {
       var next = headers.Link.match(/<(.*?)>;\s*rel="next"/);
       if (next) {
         res.paging = {
-          next: next[1]
+          next: next[1],
         };
       }
     }
   }
-
-};
+}

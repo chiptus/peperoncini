@@ -3,11 +3,10 @@ const basicCrud = require('./basic-crud.controller');
 
 module.exports = {
   getList(req, res, next) {
-    Category.find({})
-      .exec((err, result) => {
-        if (err) throw err;
-        res.json(result);
-      });
+    Category.find({}).exec((err, result) => {
+      if (err) throw err;
+      res.json(result);
+    });
   },
   add(req, res, next) {
     if (!req.body.name) {
@@ -20,11 +19,12 @@ module.exports = {
     });
   },
   get(req, res) {
-    Category.findOne({ _id: req.params.id }, { name: 1, _id: 0 })
-      .exec((err, data) => {
+    Category.findOne({ _id: req.params.id }, { name: 1, _id: 0 }).exec(
+      (err, data) => {
         if (err) throw err;
         res.json(data);
-      });
+      }
+    );
   },
   update(req, res) {
     res.json({ message: `update ${name} id: ${req.params.id}` });
@@ -33,5 +33,5 @@ module.exports = {
     Category.findByIdAndRemove(req.params.id)
       .exec()
       .then(doc => res.send({ success: true, document: doc }));
-  }
+  },
 };

@@ -9,11 +9,13 @@ hello.init({
 });
 
 export default () => {
-  return hello('facebook').login().then(response => {
-    return axios
-      .post(`${SERVER_URL}/auth/facebook`, {
-        socialToken: response.authResponse.access_token,
-      })
-      .then(response => response.data);
-  });
+  return hello('facebook')
+    .login()
+    .then(response => {
+      return axios
+        .post(`${SERVER_URL}/auth/facebook`, {
+          socialToken: response.authResponse.access_token,
+        })
+        .then(response => response.data);
+    });
 };

@@ -17,9 +17,11 @@ const Header = ({
       title="מחשבון הכמויות של Peperoncini"
       onLeftIconButtonTouchTap={toggleDrawer}
       iconElementRight={
-        isLoggedIn
-          ? <SignOut {...{ logout, username }} />
-          : <SignIn {...{ login }} />
+        isLoggedIn ? (
+          <SignOut {...{ logout, username }} />
+        ) : (
+          <SignIn {...{ login }} />
+        )
       }
     />
   );

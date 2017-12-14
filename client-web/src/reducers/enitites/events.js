@@ -1,6 +1,9 @@
-import {INGREDIENTS} from '../../constants/actions';
+import { INGREDIENTS } from '../../constants/actions';
 
-export default function ingEntitiesReducer(state = {}, {type, payload, error}){
+export default function ingEntitiesReducer(
+  state = {},
+  { type, payload, error }
+) {
   switch (type) {
     default:
       return state;

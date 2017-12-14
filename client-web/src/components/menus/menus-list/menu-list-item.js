@@ -13,9 +13,7 @@ const ItemContent = ({ description, courses, ingredients }) => {
         </span>
         <span> ש"ח </span>
       </div>
-      <div>
-        {description}
-      </div>
+      <div>{description}</div>
       <ComponentsList title="רשימת מנות" comps={courses} />
       <ComponentsList title="רשימת רכיבים" comps={ingredients} />
     </div>

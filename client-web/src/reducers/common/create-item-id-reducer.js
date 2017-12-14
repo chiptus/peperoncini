@@ -14,10 +14,8 @@ export default function createItemIdReducer(actions) {
       ...state,
       isFetching: isFetchingReducer(state.isFetching, { type, payload }),
       items: itemsReducer(state.items, { type, payload }),
-    }
+    };
   }
-
-
 
   function isFetchingReducer(isFetching = false, { type, payload }) {
     switch (type) {
@@ -28,7 +26,6 @@ export default function createItemIdReducer(actions) {
       case actions.REQUEST_UPDATE:
       case actions.REQUEST_DELETE:
         return true;
-
 
       case actions.RECEIVED_ITEM:
       case actions.ADD:
@@ -46,8 +43,6 @@ export default function createItemIdReducer(actions) {
         return isFetching;
     }
   }
-
-
 
   function itemsReducer(items = [], { type, payload, error }) {
     switch (type) {
@@ -79,14 +74,10 @@ export default function createItemIdReducer(actions) {
   }
 
   function addItem(items, id) {
-    return [
-      id,
-      ...items,
-    ];
+    return [id, ...items];
   }
 
   function deleteItem(items, id) {
-    return items.filter(itemId => itemId !== id)
+    return items.filter(itemId => itemId !== id);
   }
-
 }

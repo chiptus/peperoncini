@@ -4,8 +4,7 @@ import { addOrUpdateItem, fetchCourse } from '../../actions/courses';
 
 import { FlatButton, TextField } from 'material-ui';
 
-import IngredientsInputList
-  from '../../components/courses/course-edit/ingredients-input';
+import IngredientsInputList from '../../components/courses/course-edit/ingredients-input';
 import AutoCompleteInput from '../../components/auto-complete-input';
 
 class AddCoursePage extends React.Component {

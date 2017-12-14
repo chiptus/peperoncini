@@ -4,7 +4,9 @@ import { FlatButton } from 'material-ui';
 
 const SignOut = ({ logout, username }) => {
   return (
-    <FlatButton label={'התנתק'} onTouchTap={logout}>{username}</FlatButton>
+    <FlatButton label={'התנתק'} onTouchTap={logout}>
+      {username}
+    </FlatButton>
   );
 };
 

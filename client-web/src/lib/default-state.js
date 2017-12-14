@@ -8,7 +8,7 @@ export default {
         ingredients: [{id, quantity}]
       }
       */
-    }
+    },
   },
   ingredients: [], //list of ingredients
   /*
@@ -21,8 +21,9 @@ export default {
   */
   courses: {
     isFetching: false,
-    items: [/*ids*/], //list of courses
-    
+    items: [
+      /*ids*/
+    ], //list of courses
   },
   menus: [], //list of menus
   /*
@@ -40,5 +41,4 @@ export default {
       menus: [{id, quantity}]
     }
   */
-
-}
+};

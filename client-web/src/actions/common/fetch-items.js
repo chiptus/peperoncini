@@ -1,18 +1,21 @@
 import axios from 'axios';
 
-export default function createFetchItemsActionCreators(serverUrl, actions, itemsName, options = {}) {
-
+export default function createFetchItemsActionCreators(
+  serverUrl,
+  actions,
+  itemsName,
+  options = {}
+) {
   return {
-    fetchItemsIfNeeded
-  }
-
+    fetchItemsIfNeeded,
+  };
 
   function fetchItemsIfNeeded() {
     return (dispatch, getState) => {
       if (shouldFetchItems(getState())) {
         return dispatch(fetchItems());
       }
-    }
+    };
   }
 
   /* FETCH ITEMS */
@@ -30,32 +33,33 @@ export default function createFetchItemsActionCreators(serverUrl, actions, items
   function fetchItems() {
     return dispatch => {
       dispatch(requestItems());
-      return axios.get(`${serverUrl}/api/${itemsName}`)
+      return axios
+        .get(`${serverUrl}/api/${itemsName}`)
         .then(
-        response => dispatch(receiveItems(response.data)),
-        error => dispatch(receiveItemsError(error))
+          response => dispatch(receiveItems(response.data)),
+          error => dispatch(receiveItemsError(error))
         );
-    }
+    };
   }
 
   function requestItems() {
     return {
       type: actions.FETCH_LIST,
-    }
+    };
   }
 
   function receiveItems(items) {
     if (options.receiveItems) {
-      return options.receiveItems(receiveItemsOriginal, items)
+      return options.receiveItems(receiveItemsOriginal, items);
     }
-    return receiveItemsOriginal(items)
+    return receiveItemsOriginal(items);
   }
 
   function receiveItemsOriginal(items) {
     return {
       type: actions.RECEIVED_LIST,
       payload: items,
-    }
+    };
   }
 
   function receiveItemsError(error) {
@@ -63,6 +67,6 @@ export default function createFetchItemsActionCreators(serverUrl, actions, items
       type: actions.FETCH_LIST_FAIL,
       payload: new Error(error),
       error: true,
-    }
+    };
   }
 }

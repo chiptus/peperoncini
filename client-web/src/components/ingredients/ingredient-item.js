@@ -2,7 +2,7 @@
 
 import React, { PropTypes } from 'react';
 
-const IngredientItemContent = ({name, price, unit, onDelete, onEdit}) => {
+const IngredientItemContent = ({ name, price, unit, onDelete, onEdit }) => {
   return (
     <div>
       <div>

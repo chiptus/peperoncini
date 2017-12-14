@@ -29,13 +29,12 @@ module.exports = {
     });
   },
   get(req, res) {
-    Menu.findOne(
-      { _id: req.params.id },
-      { name: 1, _id: 0 }
-    ).exec((err, data) => {
-      if (err) throw err;
-      res.json(data);
-    });
+    Menu.findOne({ _id: req.params.id }, { name: 1, _id: 0 }).exec(
+      (err, data) => {
+        if (err) throw err;
+        res.json(data);
+      }
+    );
   },
   update({ body: item, params: { id } }, res) {
     if (!item) {

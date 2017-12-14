@@ -1,10 +1,9 @@
-module.exports = (Model) => ({
+module.exports = Model => ({
   getList(req, res, next) {
-    Model.find({})
-      .exec((err, result) => {
-        if (err) throw err;
-        res.json(result);
-      });
+    Model.find({}).exec((err, result) => {
+      if (err) throw err;
+      res.json(result);
+    });
   },
   add(req, res, next) {
     if (!req.body.name) {
@@ -17,18 +16,19 @@ module.exports = (Model) => ({
     });
   },
   get(req, res) {
-    Model.findOne({ _id: req.params.id }, { name: 1, _id: 0 })
-      .exec((err, data) => {
+    Model.findOne({ _id: req.params.id }, { name: 1, _id: 0 }).exec(
+      (err, data) => {
         if (err) throw err;
         res.json(data);
-      });
+      }
+    );
   },
   update(req, res) {
     res.send(`update ${name} id: ${req.params.id}`);
   },
   deleteItem(req, res) {
     Model.findByIdAndRemove(req.params.id)
-    .exec()
-    .then(doc => res.send({success: true, document: doc}));
-  }
+      .exec()
+      .then(doc => res.send({ success: true, document: doc }));
+  },
 });

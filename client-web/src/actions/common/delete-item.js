@@ -1,25 +1,30 @@
 import axios from 'axios';
 
-export default function createDeleteItemActionCreators(serverUrl, actions, itemsName, options = {}) {
-  return { deleteItem }
+export default function createDeleteItemActionCreators(
+  serverUrl,
+  actions,
+  itemsName,
+  options = {}
+) {
+  return { deleteItem };
 
   function deleteItem(itemId) {
     return dispatch => {
-      dispatch(requestDeleteItem(itemId))
+      dispatch(requestDeleteItem(itemId));
       return axios
         .delete(`${serverUrl}/api/${itemsName}/${itemId}`)
         .then(
-        request => dispatch(deleteItemSuccessWrapper(itemId)),
-        error => dispatch(deleteItemFail(error))
+          request => dispatch(deleteItemSuccessWrapper(itemId)),
+          error => dispatch(deleteItemFail(error))
         );
-    }
+    };
   }
   /* DELETE ITEM */
   function requestDeleteItem(itemId) {
     return {
       type: actions.REQUEST_DELETE,
       payload: itemId,
-    }
+    };
   }
 
   function deleteItemSuccessWrapper(itemId) {
@@ -32,7 +37,7 @@ export default function createDeleteItemActionCreators(serverUrl, actions, items
   function deleteItemSuccess(itemId) {
     return {
       type: actions.DELETE,
-      payload: itemId
+      payload: itemId,
     };
   }
 
@@ -41,6 +46,6 @@ export default function createDeleteItemActionCreators(serverUrl, actions, items
       type: actions.REQUEST_DELETE_FAIL,
       payload: new Error(error),
       error: true,
-    }
+    };
   }
 }
