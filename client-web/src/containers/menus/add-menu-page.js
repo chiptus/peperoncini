@@ -4,7 +4,7 @@ import { addOrUpdateItem, fetchItem } from '../../actions/menus';
 
 import { FlatButton, TextField } from 'material-ui';
 
- import CoursesInputList from '../../components/common/sub-item-input-list';
+import CoursesInputList from '../../components/common/sub-item-input-list';
 
 class AddMenuPage extends React.Component {
   constructor(props) {
@@ -16,39 +16,37 @@ class AddMenuPage extends React.Component {
         name: '',
       },
       // ingredientsList: this.props.ingredients
-    }
-
+    };
   }
 
   componentDidUpdate() {
     if (this.props.item._id && !this.state._id) {
       this.setState({
-        ...this.props.item
+        ...this.props.item,
       });
     }
   }
 
-  onChangeName = (name) => {
-    this.setState({ name })
-  }
-
+  onChangeName = name => {
+    this.setState({ name });
+  };
 
   addCourse = () => {
     this.setState({
-      courses: [...this.state.courses, { _id: '', value: 0 }]
-    })
-  }
+      courses: [...this.state.courses, { _id: '', value: 0 }],
+    });
+  };
 
   onChangeCourse = (id, newId) => {
     this.updateCourses(id, { _id: newId });
-  }
+  };
 
   onChangeCourseValue = (id, value) => {
-    if (value < 0){
+    if (value < 0) {
       return;
     }
     this.updateCourses(id, { value: +value });
-  }
+  };
 
   updateCourses(id, ingredient) {
     const courses = this.state.courses.map(ing => {
@@ -57,34 +55,31 @@ class AddMenuPage extends React.Component {
       }
       return {
         ...ing,
-        ...ingredient
-      }
-    })
+        ...ingredient,
+      };
+    });
     this.setState({ courses });
   }
 
-  onDeleteCourse = (id) => {
-    const ingredients = this.state.ingredients.filter(ing => ing._id !== id);
-    this.setState({ ingredients });
-  }
+  onDeleteCourse = id => {
+    const courses = this.state.courses.filter(ing => ing._id !== id);
+    this.setState({ courses });
+  };
 
-  submit = (e) => {
+  submit = e => {
     e.preventDefault();
     const { name, description, courses, _id } = this.state;
     if (!name) {
-      this.setState({ error: { name: "חובה למלא שדה זה" } })
+      this.setState({ error: { name: 'חובה למלא שדה זה' } });
       return false;
     }
-    this.props.saveItem({ name, description, courses, _id })
+    this.props
+      .saveItem({ name, description, courses, _id })
       .then(t => this.props.returnToList());
-  }
+  };
 
   render() {
-    const {
-      name,
-      description,
-      courses,
-    } = this.state;
+    const { name, description, courses } = this.state;
     return (
       <div>
         <form onSubmit={this.submit}>
@@ -102,7 +97,7 @@ class AddMenuPage extends React.Component {
               multiLine
               id="course-description"
               value={description || ''}
-              onChange={(_, description) => this.setState({description})}
+              onChange={(_, description) => this.setState({ description })}
               floatingLabelText="תיאור"
             />
           </div>
@@ -114,7 +109,8 @@ class AddMenuPage extends React.Component {
               selectedSubItems={courses}
               onChangeSubItem={this.onChangeCourse}
               onChangeSubItemValue={this.onChangeCourseValue}
-              onDelete={this.onDeleteCourse} />
+              onDelete={this.onDeleteCourse}
+            />
           </div>
           <FlatButton onClick={this.submit}>שמור</FlatButton>
         </form>
@@ -124,16 +120,17 @@ class AddMenuPage extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let item = (ownProps.id) && state.entities.menus[ownProps.id];
+  let item = ownProps.id && state.entities.menus[ownProps.id];
   item = Object.assign({}, { name: '', courses: [] }, item);
   return {
     item,
-    courses: state.courses.items.map(id => state.entities.courses[id])
+    courses: state.courses.items.map(id => state.entities.courses[id]),
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  saveItem: (item) => { //async
+  saveItem: item => {
+    //async
     return dispatch(addOrUpdateItem(item));
   },
   returnToList: () => {
@@ -141,7 +138,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   fetchCourse: () => {
     return dispatch(fetchItem(ownProps.id));
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddMenuPage);
