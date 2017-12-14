@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DebounceInput from 'react-debounce-input';
+// import DebounceInput from 'react-debounce-input';
 
 class componentName extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class componentName extends Component {
           const { _id } = list[index];
           return { _id, value };
         }
-        return;
+        return null;
       })
       .filter(i => i);
     if (!ingsToAdd.length) {
@@ -63,6 +63,10 @@ class componentName extends Component {
   }
 }
 
-componentName.propTypes = {};
+componentName.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({ name: PropTypes.string.isRequired })
+  ).isRequired,
+};
 
 export default componentName;
