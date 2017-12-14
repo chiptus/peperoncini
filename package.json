@@ -4,18 +4,24 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "concurrently": "^3.4.0"
+    "npm-run-all": "^4.1.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "sudo service mongod start && concurrently 'cd ./client-web && yarn start' 'cd ./server && yarn run dev'",
-    "start": "concurrently 'cd ./client-web && yarn run build' 'cd ./server && yarn start'",
-    "postinstall": "concurrently 'cd server && yarn' 'cd client-web && yarn'"
+    "install:server": "cd ./server && yarn",
+    "install:client": "cd ./client-web && yarn",
+    "dev:client": "cd ./client-web && yarn start",
+    "dev:server": "cd ./server && yarn dev",
+    "dev": "run-p dev:*",
+    "start:client": "cd ./client-web && yarn start",
+    "start:server": "cd ./server && yarn start",
+    "start": "run-p start:*",
+    "postinstall": "run-p install:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "npm": "4.1.2",
-    "node": "7.5.0"
+    "node": "8.6.0",
+    "yarn": "1.3.2"
   },
   "keywords": [],
   "author": "",
