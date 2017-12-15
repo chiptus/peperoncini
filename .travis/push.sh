@@ -13,7 +13,7 @@ commit_website_files() {
 
 upload_files() {
   git remote add origin-pages https://${GITHUB_TOKEN}@github.com/chiptus/peperoncini.git
-  git push --quiet --set-upstream origin-pages heroku 
+  git push -f --quiet --set-upstream origin-pages heroku 
 }
 
 setup_git
