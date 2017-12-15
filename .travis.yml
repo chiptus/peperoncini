@@ -5,3 +5,6 @@ script:
   - yarn build
 after_success:
   - .travis/push.sh
+branches:
+  only:
+  - master
