@@ -3,3 +3,6 @@ add autocomplete
 
 auth
 style
+
+bug:
+- two new courses are showing the same value - add course should be disabled.
