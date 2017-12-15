@@ -7,7 +7,7 @@ setup_git() {
 
 commit_website_files() {
   git checkout -b heroku
-  git add ./client-web/build *.*
+  git add -f ./client-web/build *.*
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 }
 
