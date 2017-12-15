@@ -14,9 +14,9 @@
     "dev:client": "cd ./client-web && yarn start",
     "dev:server": "cd ./server && yarn dev",
     "dev": "run-p dev:*",
-    "start:client": "cd ./client-web && yarn build",
-    "start:server": "cd ./server && yarn start",
-    "start": "run-p start:*",
+    "start": "run-p dev:*",
+    "build:client": "cd ./client-web && yarn build",
+    "build": "run-p build:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
