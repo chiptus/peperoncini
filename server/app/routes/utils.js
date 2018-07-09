@@ -15,7 +15,7 @@ function crudRoute(app, name, options = {}) {
         })
     )
     .post(
-      isLoggedIn,
+      // isLoggedIn,
       options.add ||
         ((req, res, next) => {
           res.send(`add ${name}`);
@@ -32,7 +32,7 @@ function crudRoute(app, name, options = {}) {
         })
     )
     .post(
-      isLoggedIn,
+      // isLoggedIn,
       checkIfIdIsValid,
       options.update ||
         ((req, res) => {
@@ -40,7 +40,7 @@ function crudRoute(app, name, options = {}) {
         })
     )
     .delete(
-      isLoggedIn,
+      // isLoggedIn,
       checkIfIdIsValid,
       options.deleteItem ||
         ((req, res) => {
